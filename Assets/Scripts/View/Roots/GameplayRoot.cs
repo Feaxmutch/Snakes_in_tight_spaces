@@ -1,0 +1,32 @@
+using UnityEngine;
+using Model;
+using TMPro;
+public class GameplayRoot : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI _levelTitle;
+    [SerializeField] private GamemodeWindowRoot _gamemodeWindow;
+    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
+    [SerializeField] private ComplitionWindowRoot _complitionWindow;
+
+    private void Start()
+    {
+        Compose();
+    }
+
+    private void Compose()
+    {
+        DefaultGamemode gamemode = new();
+        LevelData levelData = LevelSelector.Instance.CurrentLevel;
+        LevelRoot levelRoot = Instantiate(levelData.LevelPrefab);
+        Level level = levelRoot.Compose(levelData, gamemode);
+        _levelTitle.text = levelData.Name;
+        ComposeInterface(gamemode);
+        Level.Start(level);
+    }
+
+    private void ComposeInterface(DefaultGamemode gamemode)
+    {
+        _gamemodeWindow.Compose(gamemode);
+        _complitionWindow.Compose(gamemode);
+    }
+}

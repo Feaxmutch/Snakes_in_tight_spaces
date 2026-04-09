@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8a52cc30beecc4a9ff40afc256f064, type: 3}
+  m_Name: Test_level
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Test level
+  <Size>k__BackingField: {x: 8, y: 7}
+  <LevelPrefab>k__BackingField: {fileID: 5150421642131763210, guid: 10c4993ef2c827b43bad9756a52f6812, type: 3}
+  <SnakesSpeed>k__BackingField: 6
