@@ -18,6 +18,10 @@ public class ComplitionWindowRoot : DefaultWindowRoot
     protected override void InitViewModel()
     {
         base.InitViewModel();
-        _viewModel.Initialize(_gamemode);
+
+        if (_viewModel != null)
+        {
+            _viewModel.Initialize(_gamemode);
+        }
     }
 }

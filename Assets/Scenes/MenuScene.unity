@@ -902,6 +902,8 @@ MonoBehaviour:
   _isVisibleOnStart: 1
   _buttons:
   - {fileID: 2033751751}
+  _showEvents: []
+  _hideEvents: []
   <View>k__BackingField: {fileID: 688352881}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
@@ -1211,6 +1213,8 @@ MonoBehaviour:
   - {fileID: 1485963438}
   - {fileID: 838248726}
   - {fileID: 595004642}
+  _showEvents: []
+  _hideEvents: []
   <View>k__BackingField: {fileID: 891142192}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
@@ -1554,6 +1558,7 @@ GameObject:
   - component: {fileID: 1340238262}
   - component: {fileID: 1340238265}
   - component: {fileID: 1340238266}
+  - component: {fileID: 1340238267}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1662,6 +1667,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1340238267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340238261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d1f2c9a007d25498a6499072eafb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuRoot: {fileID: 1340238265}
 --- !u!1 &1361860234
 GameObject:
   m_ObjectHideFlags: 0

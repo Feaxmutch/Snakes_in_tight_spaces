@@ -7,12 +7,9 @@ public class MenuRoot : MonoBehaviour
 {
     [SerializeField] private DefaultWindowRoot[] _roots;
 
-    private void Start()
-    {
-        Compose();
-    }
+    private DefaultWindowRoot[] _additionalWindows;
 
-    private void Compose()
+    public void Compose()
     {
         MenuVM menuVM = new();
         List<IWindowVM> windowsViewModels = new();
@@ -23,6 +20,20 @@ public class MenuRoot : MonoBehaviour
             windowsViewModels.Add(root.ViewModel);
         }
 
+        if (_additionalWindows != null)
+        {
+            foreach (var root in _additionalWindows)
+            {
+                root.Compose();
+                windowsViewModels.Add(root.ViewModel);
+            }
+        }
+
         menuVM.Initialize(windowsViewModels.ToArray());
+    }
+
+    public void SetAdditionalWindows(DefaultWindowRoot[] windows)
+    {
+        _additionalWindows = windows;
     }
 }

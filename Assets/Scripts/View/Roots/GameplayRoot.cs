@@ -7,6 +7,7 @@ public class GameplayRoot : MonoBehaviour
     [SerializeField] private GamemodeWindowRoot _gamemodeWindow;
     [SerializeField] private UpdateBroadcaster _updateBroadcaster;
     [SerializeField] private ComplitionWindowRoot _complitionWindow;
+    [SerializeField] private MenuRoot _menuRoot;
 
     private void Start()
     {
@@ -20,12 +21,14 @@ public class GameplayRoot : MonoBehaviour
         LevelRoot levelRoot = Instantiate(levelData.LevelPrefab);
         Level level = levelRoot.Compose(levelData, gamemode);
         _levelTitle.text = levelData.Name;
+        _menuRoot.SetAdditionalWindows(levelRoot.Windows);
         ComposeInterface(gamemode);
         Level.Start(level);
     }
 
     private void ComposeInterface(DefaultGamemode gamemode)
     {
+        _menuRoot.Compose();
         _gamemodeWindow.Compose(gamemode);
         _complitionWindow.Compose(gamemode);
     }

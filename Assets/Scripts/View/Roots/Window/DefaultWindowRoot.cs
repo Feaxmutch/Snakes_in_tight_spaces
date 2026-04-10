@@ -7,7 +7,11 @@ public class DefaultWindowRoot : AnimatedWindowRoot<DefaultWindowVM, DefaultWind
 {
     public override void Compose()
     {
-        ViewModel = new();
+        if (ViewModel == null)
+        {
+            ViewModel = new();
+        }
+        
         InitViewModel();
         InitView();
     }

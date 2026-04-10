@@ -6,6 +6,8 @@ namespace ViewModel
     public abstract class WindowVM : IWindowVM
     {
         private IButton[] _buttons;
+        private IGlobalEvent _showEvents;
+        private IGlobalEvent _hideEvents;
 
         protected bool IsActive {get; private set; }
 
@@ -28,6 +30,19 @@ namespace ViewModel
             else
             {
                 Hide();
+            }
+        }
+
+        public void Subscribe(IGlobalEvent[] showEvents, IGlobalEvent[] hideEvents)
+        {
+            foreach (var showEvent in showEvents)
+            {
+                showEvent.Invoked += Show;
+            }
+
+            foreach (var hideEvent in hideEvents)
+            {
+                hideEvent.Invoked += Hide;
             }
         }
 

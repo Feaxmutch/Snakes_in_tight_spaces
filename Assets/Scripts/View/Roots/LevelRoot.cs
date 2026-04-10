@@ -18,6 +18,8 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private WallRoot[] _wallRoots;
     [SerializeField] private ExitRoot[] _exitRoots;
 
+    [field : SerializeField] public DefaultWindowRoot[] Windows { get; private set; }
+
     public Level Compose(LevelData levelData, Gamemode gamemode)
     {
         Array2d<GridObject> levelMatrix = new(levelData.Size.x, levelData.Size.y);

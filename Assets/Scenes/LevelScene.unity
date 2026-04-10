@@ -751,6 +751,8 @@ MonoBehaviour:
   _buttons:
   - {fileID: 2017710734}
   - {fileID: 1181925589}
+  _showEvents: []
+  _hideEvents: []
   <View>k__BackingField: {fileID: 655440015}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
@@ -1313,6 +1315,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1421,6 +1424,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30550a443b7eae74a83826ed6114242b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerTime: 10
 --- !u!1 &1034054896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2061,8 @@ MonoBehaviour:
   _buttons:
   - {fileID: 1384588985}
   - {fileID: 629256291}
+  _showEvents: []
+  _hideEvents: []
   <View>k__BackingField: {fileID: 1389739602}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
@@ -2083,6 +2101,7 @@ MonoBehaviour:
   _gamemodeWindow: {fileID: 1934341450}
   _updateBroadcaster: {fileID: 963194230}
   _complitionWindow: {fileID: 655440017}
+  _menuRoot: {fileID: 1580589821}
 --- !u!4 &1580589820
 Transform:
   m_ObjectHideFlags: 0
@@ -2608,6 +2627,8 @@ MonoBehaviour:
   _isVisibleOnStart: 1
   _buttons:
   - {fileID: 2047968691}
+  _showEvents: []
+  _hideEvents: []
   <View>k__BackingField: {fileID: 1934341449}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}

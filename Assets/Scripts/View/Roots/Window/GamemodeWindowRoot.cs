@@ -22,12 +22,20 @@ public class GamemodeWindowRoot : DefaultWindowRoot
     protected override void InitViewModel()
     {
         base.InitViewModel();
-        _viewModel.Initialize(_gamemode);
+
+        if (_viewModel != null)
+        {
+            _viewModel.Initialize(_gamemode);
+        }
     }
 
     protected override void InitView()
     {
         base.InitView();
-        _view.Initialize(_viewModel);
+        
+        if (_view != null)
+        {
+            _view.Initialize(_viewModel);
+        }
     }
 }

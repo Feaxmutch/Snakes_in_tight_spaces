@@ -2,11 +2,9 @@ using System;
 using UnityEngine;
 using ViewModel;
 
-public class StartEvent : MonoBehaviour, IGlobalEvent
+public class StartEvent : GlobalEvent
 {
     private LevelBroadcaster _broadcaster;
-
-    public event Action Invoked;
 
     private void Awake()
     {
@@ -16,16 +14,11 @@ public class StartEvent : MonoBehaviour, IGlobalEvent
 
     private void OnEnable()
     {
-        _broadcaster.Started += OnStart;
+        _broadcaster.Started += OnInvoke;
     }
 
     private void OnDisable()
     {
-        _broadcaster.Started -= OnStart;
-    }
-
-    private void OnStart()
-    {
-        Invoked?.Invoke();
+        _broadcaster.Started -= OnInvoke;
     }
 }
