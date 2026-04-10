@@ -10,6 +10,8 @@ namespace Model
         private Gamemode _gamemode;
         private Grid _grid;
 
+        public static event Action Started;
+
         public static Level CurrentLevel { get; private set; }
 
         public IGamemode Gamemode => _gamemode;
@@ -42,6 +44,7 @@ namespace Model
 
             CurrentLevel = level;
             level.OnStart();
+            Started?.Invoke();
         }
 
         public static void Stop()
