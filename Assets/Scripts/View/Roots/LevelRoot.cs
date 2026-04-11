@@ -4,7 +4,6 @@ using ViewModel;
 using System.Collections.Generic;
 using Vector2Int = Other.Vector2Int;
 using System.Linq; 
-using Color = Other.Color;
 using Other;
 
 public class LevelRoot : MonoBehaviour

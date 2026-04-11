@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public abstract class BootstrapComponent<T> : MonoBehaviour where T : MonoBehaviour

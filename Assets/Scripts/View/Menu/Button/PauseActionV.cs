@@ -1,7 +1,5 @@
 using Model;
-using ViewModel;
 using System;
-using UnityEngine;
 
 public class PauseActionV : ButtonActionV
 {

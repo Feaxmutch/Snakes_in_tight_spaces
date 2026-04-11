@@ -1,7 +1,5 @@
-using UnityEngine;
 using Model;
 using ViewModel;
-using Animation = Other.Animation;
 
 public class GamemodeWindowRoot : DefaultWindowRoot
 {

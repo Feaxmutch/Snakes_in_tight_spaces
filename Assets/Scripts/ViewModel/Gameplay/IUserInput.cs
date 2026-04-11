@@ -1,4 +1,3 @@
-using Other;
 using UnityEngine;
 
 namespace ViewModel

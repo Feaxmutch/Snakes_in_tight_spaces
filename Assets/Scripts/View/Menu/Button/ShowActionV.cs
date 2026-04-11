@@ -1,5 +1,3 @@
-using ViewModel;
-using UnityEngine;
 
 public class ShowActionV : WindowActionV
 {

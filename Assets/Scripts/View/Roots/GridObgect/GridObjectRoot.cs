@@ -1,7 +1,6 @@
 using UnityEngine;
 using Model;
 using ViewModel;
-using Other;
 
 public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
 {

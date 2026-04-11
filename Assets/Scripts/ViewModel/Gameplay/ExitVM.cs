@@ -1,6 +1,5 @@
 using Model;
 using Other;
-using UnityEngine;
 using Color = Other.Color;
 
 namespace ViewModel

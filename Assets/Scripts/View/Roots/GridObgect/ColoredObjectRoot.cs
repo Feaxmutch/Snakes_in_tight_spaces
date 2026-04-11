@@ -1,7 +1,6 @@
 using Model;
 using ViewModel;
 using UnityEngine;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
 
 public class ColoredObjectRoot<M, VM, V> : GridObjectRoot<M, VM, V> where M : ColoredObject, new() where VM : ColoredObjectVM, new() where V : ColoredObjectV 
 {

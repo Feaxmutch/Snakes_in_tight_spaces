@@ -1,5 +1,3 @@
-using UnityEngine.SceneManagement;
-using Model;
 
 namespace ViewModel
 {

@@ -2,7 +2,6 @@ using Vector2Int = Other.Vector2Int;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using Other;
 
 namespace Model
 {

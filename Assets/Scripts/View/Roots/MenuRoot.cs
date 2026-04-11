@@ -1,6 +1,5 @@
 using UnityEngine;
 using ViewModel;
-using Model;
 using System.Collections.Generic;
 
 public class MenuRoot : MonoBehaviour

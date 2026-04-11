@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using System.Drawing;
 using UnityEngine;
 
 public class FlorV : MonoBehaviour

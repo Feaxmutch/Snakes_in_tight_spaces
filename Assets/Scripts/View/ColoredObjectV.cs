@@ -1,6 +1,5 @@
 using UnityEngine;
 using ViewModel;
-using System;
 
 [RequireComponent(typeof(MeshRenderer))]
 public class ColoredObjectV : DefaultGridObjectV

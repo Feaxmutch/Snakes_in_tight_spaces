@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using ViewModel;
 
 public class TimeEvent : GlobalEvent
 {

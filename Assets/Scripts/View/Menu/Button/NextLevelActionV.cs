@@ -1,4 +1,3 @@
-
 using Model;
 
 public class NextLevelActionV : ButtonActionV

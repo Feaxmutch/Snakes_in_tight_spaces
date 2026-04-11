@@ -1,6 +1,4 @@
-using Vector2Int = Other.Vector2Int;
 using ViewModel;
-using UnityEngine;
 
 public class DefaultGridObjectV : GridObjectV
 {

@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using System;
 using UnityEngine;
 using ViewModel;

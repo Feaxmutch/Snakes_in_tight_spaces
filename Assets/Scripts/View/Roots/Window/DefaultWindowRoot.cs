@@ -1,7 +1,4 @@
 using ViewModel;
-using Other;
-using UnityEngine;
-using Animation = Other.Animation;
 
 public class DefaultWindowRoot : AnimatedWindowRoot<DefaultWindowVM, DefaultWindowV>
 {

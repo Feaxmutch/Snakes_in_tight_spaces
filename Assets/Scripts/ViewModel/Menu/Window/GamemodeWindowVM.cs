@@ -1,6 +1,5 @@
 using Model;
 using Other;
-using System;
 using UnityEngine;
 
 namespace ViewModel

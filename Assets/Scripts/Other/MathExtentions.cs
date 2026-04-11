@@ -1,5 +1,3 @@
-using System;
-
 namespace Other
 {
     public static class MathExtentions
