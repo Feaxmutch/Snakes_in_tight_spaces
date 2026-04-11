@@ -11,11 +11,6 @@ public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : 
     private Animation _showAnimation;
     private Animation _hideAnimation;
 
-    public override void Compose()
-    {
-        base.Compose();
-    }
-
     protected override void InitViewModel()
     {
         base.InitViewModel();

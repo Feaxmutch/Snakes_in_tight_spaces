@@ -14,9 +14,14 @@ public abstract class WindowRooot<VM, V> : MonoBehaviour where VM : WindowVM, ne
 
     public virtual void Compose()
     {
-        ViewModel = new();
+        if(ViewModel == null) ViewModel = CreateViewModel<VM>();
         InitViewModel();
         InitView();
+    }
+
+    protected T CreateViewModel<T>() where T : WindowVM, new()
+    {
+        return new T();
     }
 
     protected virtual void InitViewModel()

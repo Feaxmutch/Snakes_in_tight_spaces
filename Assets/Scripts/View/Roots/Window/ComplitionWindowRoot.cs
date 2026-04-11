@@ -4,13 +4,11 @@ using Model;
 public class ComplitionWindowRoot : DefaultWindowRoot
 {
     private Gamemode _gamemode;
-    private ComplitionWindowVM _viewModel;
 
     public void Compose(Gamemode gamemode)
     {
         _gamemode = gamemode;
-        ViewModel = new ComplitionWindowVM();
-        _viewModel = ViewModel as ComplitionWindowVM;
+        if(ViewModel == null) ViewModel = CreateViewModel<ComplitionWindowVM>();
         InitViewModel();
         InitView();
     }
@@ -18,10 +16,6 @@ public class ComplitionWindowRoot : DefaultWindowRoot
     protected override void InitViewModel()
     {
         base.InitViewModel();
-
-        if (_viewModel != null)
-        {
-            _viewModel.Initialize(_gamemode);
-        }
+        (ViewModel as ComplitionWindowVM).Initialize(_gamemode);
     }
 }
