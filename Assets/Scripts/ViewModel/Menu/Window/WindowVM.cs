@@ -21,15 +21,6 @@ namespace ViewModel
         {
             IsActive = isVisibleOnStart;
             _buttons = buttons;
-
-            if (isVisibleOnStart)
-            {
-                Show();
-            }
-            else
-            {
-                Hide();
-            }
         }
 
         public void Subscribe(IGlobalEvent[] showEvents, IGlobalEvent[] hideEvents)
