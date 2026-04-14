@@ -15,3 +15,27 @@ MonoBehaviour:
   <StartValue>k__BackingField: 0
   <EndValue>k__BackingField: 720
   <Duration>k__BackingField: 1
+  <Curve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0012945756
+      value: 0.00185881
+      inSlope: Infinity
+      outSlope: 0.04387016
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.48316053
+    - serializedVersion: 3
+      time: 1.0012817
+      value: 1
+      inSlope: 24.544058
+      outSlope: 0
+      tangentMode: 1
+      weightedMode: 3
+      inWeight: 0.0025908088
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

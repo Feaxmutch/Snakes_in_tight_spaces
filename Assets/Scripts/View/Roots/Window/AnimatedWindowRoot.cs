@@ -32,5 +32,7 @@ public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : 
         _hideAnimation.SetLimits(_hideData.StartValue, _hideData.EndValue);
         _showAnimation.SetDuration(_showData.Duration);
         _hideAnimation.SetDuration(_showData.Duration);
+        _showAnimation.SetCurve(new Curve(_showData.Curve));
+        _hideAnimation.SetCurve(new Curve(_hideData.Curve));
     }
 }

@@ -9,6 +9,8 @@ public class AnimationData : ScriptableObject
 
     [field : SerializeField] public float Duration { get; private set; }
 
+    [field : SerializeField] public AnimationCurve Curve { get; private set; }
+
     private void OnValidate()
     {
         Duration = Mathf.Max(Duration, default(float));
