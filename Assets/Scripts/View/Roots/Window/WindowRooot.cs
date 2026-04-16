@@ -12,11 +12,15 @@ public abstract class WindowRooot<VM, V> : MonoBehaviour where VM : WindowVM, ne
     
     public VM ViewModel {get; protected set; }
 
-    public virtual void Compose()
+    public void Compose()
+    {
+        CreateAll();
+        InitAll();
+    }
+
+    protected virtual void CreateAll()
     {
         if(ViewModel == null) ViewModel = CreateViewModel<VM>();
-        InitViewModel();
-        InitView();
     }
 
     protected T CreateViewModel<T>() where T : WindowVM, new()
@@ -44,5 +48,11 @@ public abstract class WindowRooot<VM, V> : MonoBehaviour where VM : WindowVM, ne
     protected virtual void InitView()
     {
         View.Initialize(ViewModel);
+    }
+
+    private void InitAll()
+    {
+        InitViewModel();
+        InitView();
     }
 }

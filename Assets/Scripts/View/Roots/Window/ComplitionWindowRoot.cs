@@ -5,12 +5,14 @@ public class ComplitionWindowRoot : DefaultWindowRoot
 {
     private Gamemode _gamemode;
 
-    public void Compose(Gamemode gamemode)
+    public void SetGamemode(Gamemode gamemode)
     {
         _gamemode = gamemode;
+    }
+
+    protected override void CreateAll()
+    {
         if(ViewModel == null) ViewModel = CreateViewModel<ComplitionWindowVM>();
-        InitViewModel();
-        InitView();
     }
 
     protected override void InitViewModel()

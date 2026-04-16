@@ -28,8 +28,10 @@ public class GameplayRoot : MonoBehaviour
 
     private void ComposeInterface(DefaultGamemode gamemode)
     {
-        _gamemodeWindow.Compose(gamemode);
-        _complitionWindow.Compose(gamemode);
+        _gamemodeWindow.SetGamemode(gamemode);
+        _complitionWindow.SetGamemode(gamemode);
+        _gamemodeWindow.Compose();
+        _complitionWindow.Compose();
         _menuRoot.Compose();
     }
 }

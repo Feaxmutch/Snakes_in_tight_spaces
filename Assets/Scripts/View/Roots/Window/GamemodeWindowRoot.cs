@@ -5,12 +5,14 @@ public class GamemodeWindowRoot : DefaultWindowRoot
 {
     private DefaultGamemode _gamemode;
     
-    public void Compose(DefaultGamemode gamemode)
+    public void SetGamemode(DefaultGamemode gamemode)
     {
         _gamemode = gamemode;
+    }
+
+    protected override void CreateAll()
+    {
         if(ViewModel == null) ViewModel = CreateViewModel<GamemodeWindowVM>();
-        InitViewModel();
-        InitView();
     }
 
     protected override void InitViewModel()
