@@ -28,7 +28,6 @@ public class ExitV : ColoredObjectV
 
     public void Initialize(ExitVM viewModel)
     {
-        base.Initialize(viewModel);
         _viewModel = viewModel;
         _viewModel.IsOpened.Changed += UpdateOpenState;
         UpdateOpenState(_viewModel.IsOpened.Value);

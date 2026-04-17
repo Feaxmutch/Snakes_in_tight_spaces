@@ -10,9 +10,8 @@ namespace ViewModel
 
         public IReactiveValue<bool> IsOpened => _isOpened;
 
-        public void Initialize(Color color, Exit exit)
+        public void Initialize(Exit exit)
         {
-            base.Initialize(color, exit);
             _isOpened.Subscribe(exit.IsOpened);
             _isOpened.Value = exit.IsOpened.Value;
         }

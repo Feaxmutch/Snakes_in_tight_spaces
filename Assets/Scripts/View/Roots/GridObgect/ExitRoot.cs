@@ -4,22 +4,28 @@ using Other;
 
 public class ExitRoot : ColoredObjectRoot<Exit, ExitVM, ExitV>
 {
-    protected override void CreateModel()
+    protected override void CreateAll()
     {
-        base.CreateModel();
+        if(Model == null) Model = new Exit();
+        if(ViewModel == null) ViewModel = new ExitVM();
+    }
+
+    protected override void InitModel()
+    {
+        base.InitModel();
         Vector2Int exitForward = new Vector2Int((int)View.transform.forward.x, (int)View.transform.forward.z);
         Model.Initialize(exitForward);
     }
 
-    protected override void CreateViewModel(Exit model = null)
+    protected override void InitViewModel()
     {
-        base.CreateViewModel(model);
-        ViewModel.Initialize(Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[ColorIndex]), Model);
+        base.InitViewModel();
+        ViewModel.Initialize(Model);
     }
 
-    protected override void InitializeView(ExitVM viewModel = null)
+    protected override void InitView()
     {
-        base.InitializeView(viewModel);
+        base.InitView();
         View.Initialize(ViewModel);
     }
 }

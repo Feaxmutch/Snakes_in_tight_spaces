@@ -31,7 +31,6 @@ public class SnakeHeadV : ColoredObjectV
 
     public void Initialize(SnakeVM viewModel)
     {
-        base.Initialize(viewModel);
         _vewModel = viewModel;
         _vewModel.Growed += CreateBody;
         _vewModel.Rotation.Changed += UpdateRotation;
@@ -41,7 +40,10 @@ public class SnakeHeadV : ColoredObjectV
     private void CreateBody(SnakeBody body)
     {
         SnakeBodyRoot root = (SnakeBodyRoot)_bodyFactory.Create();
-        root.Compose(body, _vewModel.InterpolationSpeed, _vewModel.Color.Value, _updateBroadcaster);
+        root.SetForceColor(_vewModel.Color.Value);
+        root.SetSpeed(_vewModel.InterpolationSpeed);
+        root.SetBody(body);
+        root.Compose();
     }
 
     private void UpdateRotation(Quaternion quaternion)

@@ -20,9 +20,8 @@ namespace ViewModel
 
         public IReactiveValue<Quaternion> Rotation => _rotation;
 
-        public void Initialize(Color color, SnakeHead head, IUserInput userInput, IUnityUpdate unityUpdate)
+        public void Initialize(SnakeHead head, IUserInput userInput)
         {
-            Initialize(color, head, true, unityUpdate);
             _head = head;
             _head.Growed += OnGrow;
             _userInput = userInput;

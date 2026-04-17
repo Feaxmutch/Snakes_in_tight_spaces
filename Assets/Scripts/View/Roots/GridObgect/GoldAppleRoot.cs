@@ -8,16 +8,9 @@ public class GoldAppleRoot : ColoredObjectRoot<GoldApple, AppleVM, GoldAppleV>
 {
     [field: SerializeField] public AppleRoot Locker { get; private set; }
 
-    public override void Compose()
+    protected override void InitModel()
     {
-        CreateModel();
-        CreateViewModel();
-        InitializeView();
-    }
-
-    protected override void CreateModel()
-    {
-        base.CreateModel();
+        base.InitModel();
 
         if (Locker == null)
         {
@@ -38,26 +31,9 @@ public class GoldAppleRoot : ColoredObjectRoot<GoldApple, AppleVM, GoldAppleV>
         Model.Initialize(Locker.Model);
     }
 
-    protected override void CreateViewModel(GoldApple model = null)
+    protected override void InitViewModel()
     {
-        ViewModel = new();
-
-        if (model != null)
-        {
-            Model = model;
-        }
-
-        Color color = Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[ColorIndex]);
-        ViewModel.Initialize(color, Model);
-    }
-
-    protected override void InitializeView(AppleVM viewModel = null)
-    {
-        if (viewModel != null)
-        {
-            ViewModel = viewModel;
-        }
-
-        View.Initialize(ViewModel);
+        base.InitViewModel();
+        ViewModel.Initialize(Model);
     }
 }

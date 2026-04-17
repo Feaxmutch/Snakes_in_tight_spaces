@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 917671687105690550}
   - component: {fileID: 3275154889246886188}
   - component: {fileID: 6803376207755038024}
+  - component: {fileID: 4185324058845733853}
   m_Layer: 0
   m_Name: SnakeBody
   m_TagString: Untagged
@@ -119,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3926f81b85bc134b8e391a0273dd91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorIndex: 0
 --- !u!114 &6803376207755038024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _updateBroadcaster: {fileID: 4185324058845733853}
   <View>k__BackingField: {fileID: 3275154889246886188}
-  _updateBroadcaster: {fileID: 0}
-  _factory: {fileID: 0}
+  _colorIndex: 0
+--- !u!114 &4185324058845733853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6302801297992975541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

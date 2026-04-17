@@ -1,46 +1,36 @@
 using Model;
 using System.Collections.Generic;
 using UnityEngine;
-using ViewModel;
 using Vector2Int = Other.Vector2Int;
 
 public class SnakeRoot : MonoBehaviour 
 {
-    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
-    [SerializeField] private InputBroadcaster _inputBroadcaster;
-    [SerializeField] private SnakeHeadV _headView;
-    [SerializeField] private List<SnakeBodyV> _bodyViewes;
-    [SerializeField] private int _colorIndex;
+    [SerializeField] private List<SnakeBodyRoot> _bodyRoots;
+    [SerializeField] private SnakeHeadRoot _headRoot;
 
     public Dictionary<Vector2Int, GridObject> Compose(float speed)
     {
-        SnakeHeadFactory headFactory = new();
-
-        int x = 0;
-        int y = 0;
+        int x;
+        int y;
         Dictionary<Vector2Int, GridObject> gridObjects = new();
         List<SnakeBody> bodyes = new();
-        Color headColor = GameplayColors.Instance.ColorPack.Colors[_colorIndex];
 
-        foreach (var bodyView in _bodyViewes)
+        foreach (var bodyRoot in _bodyRoots)
         {
-            x = (int)bodyView.transform.position.x;
-            y = (int)bodyView.transform.position.z;
-            SnakeBody body = new();
-            body.Initialize(Other.Color.ConvertFromUnity(headColor));
-            gridObjects[new Vector2Int(x, y)] = body;
-            bodyes.Add(body);
-            Destroy(bodyView.gameObject);
+            x = (int)bodyRoot.transform.position.x;
+            y = (int)bodyRoot.transform.position.z;
+            bodyRoot.Compose();
+            gridObjects[new Vector2Int(x, y)] = bodyRoot.Model;
+            bodyes.Add(bodyRoot.Model);
+            Destroy(bodyRoot.gameObject);
         }
 
-        x = (int)_headView.transform.position.x;
-        y = (int)_headView.transform.position.z;
-        Other.Color modelColor = Other.Color.ConvertFromUnity(headColor);
-        SnakeHead head = headFactory.Create(modelColor, speed, bodyes);
-        gridObjects[new Vector2Int(x, y)] = head;
-        SnakeVM headViewModel = new();
-        headViewModel.Initialize(modelColor, head, _inputBroadcaster, _updateBroadcaster);
-        _headView.Initialize(headViewModel);
+        x = (int)_headRoot.transform.position.x;
+        y = (int)_headRoot.transform.position.z;
+        _headRoot.SetBodies(bodyes);
+        _headRoot.SetSpeed(speed);
+        _headRoot.Compose();
+        gridObjects[new Vector2Int(x, y)] = _headRoot.Model;
         return gridObjects;
     }
 }

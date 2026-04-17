@@ -11,9 +11,8 @@ namespace ViewModel
 
         public IReactiveValue<Color> Color => _color;
 
-        public void Initialize(Color color, ColoredObject coloredObject, bool isInterpolation = false, IUnityUpdate unityUpdate = null)
+        public void Initialize(Color color)
         {
-            Initialize(coloredObject, isInterpolation, unityUpdate);
             _color.Value = color;
         }
 

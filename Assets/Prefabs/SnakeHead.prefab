@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6332226694477761386}
   - component: {fileID: 8439910751785589221}
   - component: {fileID: 1917341525742107033}
+  - component: {fileID: 7684559460730225850}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Untagged
@@ -121,12 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949e056af6082974c8ba24c2a2ca147c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateBroadcaster: {fileID: 0}
-  _inputBroadcaster: {fileID: 0}
-  _headView: {fileID: 1917341525742107033}
-  _bodyViewes:
-  - {fileID: 0}
-  - {fileID: 0}
+  _bodyRoots: []
+  _colorIndex: 0
+  _headRoot: {fileID: 7684559460730225850}
 --- !u!114 &1917341525742107033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,8 +137,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d6296fdf9c91446aea5833477af886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodyFactory: {fileID: 0}
+  _updateBroadcaster: {fileID: 0}
+--- !u!114 &7684559460730225850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842242227496523538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2716ea07d32dcfd42837fa71b8765aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _updateBroadcaster: {fileID: 0}
+  <View>k__BackingField: {fileID: 1917341525742107033}
   _colorIndex: 0
-  _bodyRoot: {fileID: 0}
+  _inputBroadcaster: {fileID: 0}
 --- !u!1 &7340597356520976257
 GameObject:
   m_ObjectHideFlags: 0

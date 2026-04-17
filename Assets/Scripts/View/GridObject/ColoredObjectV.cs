@@ -17,7 +17,6 @@ public class ColoredObjectV : DefaultGridObjectV
         _viewModel = viewModel;
         _viewModel.Color.Changed += SetColor;
         _viewModel.Color.InvokeEvent();
-        base.Initialize(viewModel);
     }
     private void SetColor(Other.Color color)
     {

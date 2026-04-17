@@ -2,19 +2,17 @@ using Model;
 using ViewModel;
 using Other;
 
+
 public class SnakeBodyRoot : ColoredObjectRoot<SnakeBody, ColoredObjectVM, SnakeBodyV>
 {
-    public void Compose(SnakeBody body, float speed, Color color, IUnityUpdate unityUpdate)
+    public void SetBody(SnakeBody body)
     {
-        CreateViewModel(body, color, unityUpdate);
-        InitializeView();
-        ViewModel.SetSpeed(speed);
+        Model = body;
     }
 
-    protected void CreateViewModel(SnakeBody model, Color color, IUnityUpdate unityUpdate)
+    protected override void InitViewModel()
     {
-        ViewModel = new();
-        ViewModel.Initialize(color, model, true, unityUpdate);
+        SetInterpolation(true);
+        base.InitViewModel();
     }
-
 }

@@ -4,49 +4,65 @@ using ViewModel;
 
 public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
 {
+    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
+
+    private bool _isUseInterpolation = false;
+
     [field : SerializeField] public V View { get; private set; }
+
+    protected float InterpolationSpeed { get; private set; } = 1f;
 
     public M Model { get; protected set; }
 
     protected VM ViewModel { get; set; }
 
-    public virtual void Compose(M model = null, VM viewModel = null)
-    {
-        CreateModel();
-        CreateViewModel(model);
-        InitializeView(viewModel);
-    }
-
     public virtual void Compose()
     {
-        Compose(null, null);
+        CreateAll();
+        InitAll();
     }
 
-    protected virtual void CreateModel()
+    public void SetSpeed(float value)
     {
-        GridObjectFactory factory = new();
-        Model = factory.Create<M>();
+        InterpolationSpeed = value;
     }
 
-    protected virtual void CreateViewModel(M model = null)
+    protected void SetInterpolation(bool value)
     {
-        ViewModel = new();
-
-        if (model != null)
-        {
-            Model = model;
-        }
-
-        ViewModel.Initialize(Model);
+        _isUseInterpolation = value;
     }
 
-    protected virtual void InitializeView(VM viewModel = null)
+    protected virtual void CreateAll()
     {
-        if (viewModel != null)
-        {
-            ViewModel = viewModel;
-        }
+        if(Model == null)  Model = new M();
+        if(ViewModel == null) ViewModel = new VM();
+    }
 
+    protected T CreateModel<T>() where T : GridObject, new()
+    {
+        return new T();
+    }
+
+    protected virtual void InitModel()
+    {
+        
+    }
+
+    protected virtual void InitViewModel()
+    {
+        ViewModel.SetSpeed(InterpolationSpeed);
+        ViewModel.Initialize(Model, _isUseInterpolation, _updateBroadcaster);
+    }
+
+    protected virtual void InitView()
+    {
         View.Initialize(ViewModel);
+    }
+
+    private void InitAll()
+    {
+        InitModel();
+        InitViewModel();
+        InitView();
     }
 }

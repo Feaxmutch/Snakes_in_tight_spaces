@@ -1,51 +1,64 @@
 using Model;
 using ViewModel;
 using UnityEngine;
+using Color = Other.Color;
 
 public class ColoredObjectRoot<M, VM, V> : GridObjectRoot<M, VM, V> where M : ColoredObject, new() where VM : ColoredObjectVM, new() where V : ColoredObjectV 
 {
     [SerializeField] private int _colorIndex;
 
+    private Color _forceColor = Color.Black;
+
     protected int ColorIndex => _colorIndex;
 
-    public override void Compose(M model = null, VM viewModel = null)
+    public void SetForceColor(Color value)
     {
-        CreateModel();
-        CreateViewModel(model);
-        InitializeView(viewModel);
+        _forceColor = value;
     }
 
-    public override void Compose()
+    protected virtual new void CreateAll()
     {
-        Compose(null, null);
+        if(Model == null) Model = new M();
+        if(ViewModel == null) ViewModel = new VM();
     }
 
-    protected override void CreateModel()
+    protected override void InitModel()
     {
-        Other.Color modelColor = Other.Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[_colorIndex]);
-        ColoredObjectFactory factory = new();
-        Model = factory.Create<M>(modelColor);
-    }
+        base.InitModel();
+        Color color;
 
-    protected override void CreateViewModel(M model = null)
-    {
-        ViewModel = new();
-
-        if (model != null)
+        if (_forceColor == Color.Black)
         {
-            Model = model;
+            color = Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[_colorIndex]);
+        }
+        else
+        {
+            color = _forceColor;
+        }
+        
+        Model.Initialize(color);
+    }
+
+    protected override void InitViewModel()
+    {
+        base.InitViewModel();
+        Color color;
+
+        if (_forceColor == Color.Black)
+        {
+            color = Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[_colorIndex]);
+        }
+        else
+        {
+            color = _forceColor;
         }
 
-        ViewModel.Initialize(Other.Color.ConvertFromUnity(GameplayColors.Instance.ColorPack.Colors[_colorIndex]), Model);
+        ViewModel.Initialize(color);
     }
 
-    protected override void InitializeView(VM viewModel = null)
+    protected override void InitView()
     {
-        if (viewModel != null)
-        {
-            ViewModel = viewModel;
-        }
-
+        base.InitView();
         View.Initialize(ViewModel);
     }
 }
