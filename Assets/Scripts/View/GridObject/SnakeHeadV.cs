@@ -16,6 +16,7 @@ public class SnakeHeadV : ColoredObjectV
         if (IsInitialized)
         {
             _vewModel.Growed += CreateBody;
+            Level.Started += CreateHat;
         }
     }
 
@@ -26,6 +27,7 @@ public class SnakeHeadV : ColoredObjectV
         if (IsInitialized)
         {
             _vewModel.Growed -= CreateBody;
+            Level.Started -= CreateHat;
         }
     }
 
@@ -34,6 +36,7 @@ public class SnakeHeadV : ColoredObjectV
         _vewModel = viewModel;
         _vewModel.Growed += CreateBody;
         _vewModel.Rotation.Changed += UpdateRotation;
+        Level.Started += CreateHat;
         UpdateRotation(_vewModel.Rotation.Value);
     }
 
@@ -49,5 +52,12 @@ public class SnakeHeadV : ColoredObjectV
     private void UpdateRotation(Quaternion quaternion)
     {
         transform.localRotation = quaternion;
+    }
+
+    private void CreateHat()
+    {
+        int hatID = PlayerProfileV.Instance.Profile.HatID;
+        HatV hat = Instantiate(HatsSelector.Instance.GetPrefab(hatID), transform.position, transform.rotation);
+        hat.transform.SetParent(transform);
     }
 }

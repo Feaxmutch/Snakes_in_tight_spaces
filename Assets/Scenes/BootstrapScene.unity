@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 368245439}
   - component: {fileID: 368245438}
   - component: {fileID: 368245441}
+  - component: {fileID: 368245442}
+  - component: {fileID: 368245443}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -194,6 +196,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ColorPack>k__BackingField: {fileID: 11400000, guid: 290a66124e43f604ba40129deff87bd5, type: 2}
+--- !u!114 &368245442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368245437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300c54de494c267499de88de451e5cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hatsList: {fileID: 11400000, guid: d59fbc3176cadb145913d46c14281ecc, type: 2}
+--- !u!114 &368245443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368245437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e062f4a02accec4d888436708b6c1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _profileSnapshot: {fileID: 11400000, guid: 9bdb9bfea4d81ad46a87295729caf0cc, type: 2}
 --- !u!1 &473000019
 GameObject:
   m_ObjectHideFlags: 0
