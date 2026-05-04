@@ -1,7 +1,7 @@
 using Model;
 using ViewModel;
 
-public class GamemodeWindowRoot : DefaultWindowRoot
+public class GamemodeWindowRoot : AnimatedWindowRoot<GamemodeWindowVM, GamemodeWindowV>
 {
     private DefaultGamemode _gamemode;
     
@@ -10,20 +10,15 @@ public class GamemodeWindowRoot : DefaultWindowRoot
         _gamemode = gamemode;
     }
 
-    protected override void CreateAll()
-    {
-        if(ViewModel == null) ViewModel = CreateViewModel<GamemodeWindowVM>();
-    }
-
     protected override void InitViewModel()
     {
         base.InitViewModel();
-        (ViewModel as GamemodeWindowVM).Initialize(_gamemode);
+        ViewModel.Initialize(_gamemode);
     }
 
     protected override void InitView()
     {
         base.InitView();
-        (View as GamemodeWindowV).Initialize(ViewModel as GamemodeWindowVM);
+        View.Initialize(ViewModel);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using ViewModel;
 using Animation = Other.Animation;
 
-public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : AnimatedWindowVM, new() where V : WindowV
+public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : AnimatedWindowVM, new() where V : AnimatedWindowV
 {
     [SerializeField] private AnimationData _showData;
     [SerializeField] private AnimationData _hideData;
@@ -23,7 +23,7 @@ public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : 
     protected override void InitView()
     {
         base.InitView();
-        View.Initialize(ViewModel);
+        View.Init(ViewModel);
     }
 
     private void InitAnimations()

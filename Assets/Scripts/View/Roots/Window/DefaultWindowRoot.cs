@@ -1,16 +1,6 @@
 using ViewModel;
 
-public class DefaultWindowRoot : AnimatedWindowRoot<DefaultWindowVM, DefaultWindowV>
+public class DefaultWindowRoot : AnimatedWindowRoot<AnimatedWindowVM, DefaultWindowV>
 {
-    protected override void InitViewModel()
-    {
-        base.InitViewModel();
-        ViewModel.Init();
-    }
-
-    protected override void InitView()
-    {
-        base.InitView();
-        View.Init(ViewModel);
-    }
+    
 }

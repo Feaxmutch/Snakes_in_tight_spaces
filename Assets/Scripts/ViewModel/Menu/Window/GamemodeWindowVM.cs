@@ -4,14 +4,9 @@ using UnityEngine;
 
 namespace ViewModel
 {
-    public class GamemodeWindowVM : DefaultWindowVM
+    public class GamemodeWindowVM : AnimatedWindowVM
     {
         private ReactiveValue<string> _timerText = new();
-
-        public GamemodeWindowVM() : base()
-        {
-            
-        }
 
         public IReactiveValue<string> TimerText => _timerText;
 

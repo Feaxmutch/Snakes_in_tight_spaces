@@ -3,14 +3,17 @@ using Animation = Other.Animation;
 
 namespace ViewModel
 {
-    public abstract class AnimatedWindowVM : WindowVM
+    public class AnimatedWindowVM : WindowVM
     {
         private Animator _animator;
         private Animation _showAnimation;
         private Animation _hideAnimation;
+        private ReactiveValue<float> _animatedValue = new();
 
-        protected IAnimation ShowAnimation => _showAnimation;
-        protected IAnimation HideAnimation => _hideAnimation;
+        public IAnimation ShowAnimation => _showAnimation;
+        public IAnimation HideAnimation => _hideAnimation;
+
+        public IReactiveValue<float> AnimatedValue => _animatedValue;
 
         public void Init(Animation showAnimation, Animation hideAnimation, IUnityUpdate unityUpdate)
         {
@@ -25,6 +28,8 @@ namespace ViewModel
         {
             Showed += OnShow;
             Hided += OnHide;
+            _animatedValue.Subscribe(_showAnimation.AnimatedValue);
+            _animatedValue.Subscribe(_hideAnimation.AnimatedValue);
         }
 
         private void InitAnimationState()

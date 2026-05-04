@@ -1,26 +1,20 @@
 using UnityEngine;
 using ViewModel;
 
-public class DefaultWindowV : WindowV
+[RequireComponent(typeof(RectTransform))]
+public class DefaultWindowV : AnimatedWindowV
 {
+    [SerializeField] private Vector2 _positionMultiplyer;
+
     private RectTransform _rectTransform;
-    private DefaultWindowVM _viewModel;
 
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void Init(DefaultWindowVM viewModel)
+    protected override void OnAnimationChanged(float currentState)
     {
-        _viewModel = viewModel;
-        _viewModel.PositionY.Changed += OnPositionChanged;
-        OnPositionChanged(_viewModel.PositionY.Value);
-    }
-
-    private void OnPositionChanged(float yPosition)
-    {
-        float xPosition = _rectTransform.anchoredPosition.x;
-        _rectTransform.anchoredPosition = new Vector2(xPosition, yPosition);
+        _rectTransform.anchoredPosition = _positionMultiplyer * currentState;
     }
 }
