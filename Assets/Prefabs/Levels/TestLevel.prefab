@@ -700,7 +700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0422\u0435\u043A\u0441\u0442 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u044F"
+  m_text: "\u043F\u0440\u043E\u0448\u043B\u043E 10 \u0441\u0435\u043A\u0443\u043D\u0434"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -87.04452, y: 0, z: -88.5018, w: 0}
+  m_margin: {x: -87.04452, y: 0, z: -146.50034, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -887,6 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd951b2d8ca64744b8959ca44c9498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _positionMultiplyer: {x: 1, y: 1}
 --- !u!114 &688352885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,6 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd951b2d8ca64744b8959ca44c9498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _positionMultiplyer: {x: 1, y: 1}
 --- !u!114 &891142193
 MonoBehaviour:
   m_ObjectHideFlags: 0
