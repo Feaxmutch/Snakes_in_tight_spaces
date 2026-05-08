@@ -22,13 +22,14 @@ namespace Model
             if (IsInLevel(true))
             {
                 PositionChanged?.Invoke(GetPosition());
+                Level.CurrentLevel.Gamemode.Ended += Destroy;
                 Started?.Invoke();
             }
         }
 
         public void Destroy()
         {
-            Level.CurrentLevel.Grid.RemoveObject(this);
+            Level.CurrentLevel?.Grid?.RemoveObject(this);
             Destroyed?.Invoke();
         }
 

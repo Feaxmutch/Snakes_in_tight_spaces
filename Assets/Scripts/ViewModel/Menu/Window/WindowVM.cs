@@ -1,4 +1,5 @@
 using System;
+using Other;
 
 namespace ViewModel
 {
@@ -7,8 +8,9 @@ namespace ViewModel
         private IButton[] _buttons;
         private IGlobalEvent _showEvents;
         private IGlobalEvent _hideEvents;
+        private ReactiveValue<bool> _isActive = new();
 
-        protected bool IsActive {get; private set; }
+        public IReactiveValue <bool> IsActive => _isActive;
 
         public WindowVM() { }
 
@@ -19,7 +21,7 @@ namespace ViewModel
 
         public void Init(IButton[] buttons, bool isVisibleOnStart)
         {
-            IsActive = isVisibleOnStart;
+            _isActive.Value = isVisibleOnStart;
             _buttons = buttons;
         }
 
@@ -38,13 +40,13 @@ namespace ViewModel
 
         public void Show()
         {
-            IsActive = true;
+            _isActive.Value = true;
             Showed?.Invoke();
         }
 
         public void Hide()
         {
-            IsActive = false;
+            _isActive.Value = false;
             Hided?.Invoke();
         }
     }

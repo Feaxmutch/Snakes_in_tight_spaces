@@ -34,7 +34,7 @@ namespace ViewModel
 
         private void InitAnimationState()
         {
-            if(IsActive)
+            if(IsActive.Value)
             {
                 _animator.SetAnimation(_showAnimation);
             }

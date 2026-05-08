@@ -2,7 +2,7 @@ using ViewModel;
 using UnityEngine;
 using TMPro;
 
-public class GamemodeWindowV : DefaultWindowV
+public class GamemodeWindowV : FadebleWindowV
 {
     [SerializeField] private TextMeshProUGUI _timerText;
 

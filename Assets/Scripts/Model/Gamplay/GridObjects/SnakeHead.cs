@@ -39,7 +39,7 @@ namespace Model
 
         public void Move()
         {
-            Level level = Level.CurrentLevel;
+            ILevel level = Level.CurrentLevel;
 
             if (CanMove() == false)
             {
@@ -207,7 +207,7 @@ namespace Model
 
         private bool CanGrow(SnakeBody body)
         {
-            Level currentLevel = Level.CurrentLevel;
+            ILevel currentLevel = Level.CurrentLevel;
 
             if (_bodyes.Contains(body))
             {
@@ -229,7 +229,7 @@ namespace Model
 
         private void Grow(SnakeBody body)
         {
-            Level currentLevel = Level.CurrentLevel;
+            ILevel currentLevel = Level.CurrentLevel;
 
             if (CanGrow(body) == false)
             {

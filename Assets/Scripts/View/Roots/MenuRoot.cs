@@ -1,12 +1,13 @@
 using UnityEngine;
 using ViewModel;
 using System.Collections.Generic;
+using System;
 
 public class MenuRoot : MonoBehaviour
 {
-    [SerializeField] private DefaultWindowRoot[] _roots;
+    [SerializeField] private BaseWindowRoot[] _roots;
 
-    private DefaultWindowRoot[] _additionalWindows;
+    private BaseWindowRoot[] _additionalWindows;
 
     public void Compose()
     {
@@ -16,7 +17,7 @@ public class MenuRoot : MonoBehaviour
         foreach (var root in _roots)
         {
             root.Compose();
-            windowsViewModels.Add(root.ViewModel);
+            windowsViewModels.Add(root.BaseViewModel);
         }
 
         if (_additionalWindows != null)
@@ -24,14 +25,14 @@ public class MenuRoot : MonoBehaviour
             foreach (var root in _additionalWindows)
             {
                 root.Compose();
-                windowsViewModels.Add(root.ViewModel);
+                windowsViewModels.Add(root.BaseViewModel);
             }
         }
 
         menuVM.Initialize(windowsViewModels.ToArray());
     }
 
-    public void SetAdditionalWindows(DefaultWindowRoot[] windows)
+    public void SetAdditionalWindows(BaseWindowRoot[] windows)
     {
         _additionalWindows = windows;
     }

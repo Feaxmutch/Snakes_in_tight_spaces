@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4506280042399921360}
   - component: {fileID: 5150421642131763210}
-  - component: {fileID: 7032349340157449931}
   m_Layer: 0
   m_Name: Level 2
   m_TagString: Untagged
@@ -97,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flor: {fileID: 9066231570569146674}
   _camera: {fileID: 8540545523668310856}
-  _updateBroadcaster: {fileID: 7032349340157449931}
+  _updateBroadcaster: {fileID: 6724047247422959637}
   _snakes:
   - {fileID: 310364274056168855}
   _appleRoots:
@@ -136,18 +135,7 @@ MonoBehaviour:
   - {fileID: 6316893084398051409}
   _exitRoots:
   - {fileID: 3214291557339082433}
---- !u!114 &7032349340157449931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112366292163911421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  <Windows>k__BackingField: []
 --- !u!1 &2918772377100006117
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _updateBroadcaster: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 5479382939086345917}
   _colorIndex: 2
 --- !u!1 &8173548488187189923
@@ -1105,6 +1094,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6889654904692366322, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
   m_PrefabInstance: {fileID: 1087163915019189172}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5871589246082627324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
+  m_PrefabInstance: {fileID: 1087163915019189172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1370965150766071341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3135,6 +3135,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake1Head
       objectReference: {fileID: 0}
+    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _colorIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _inputBroadcaster
+      value: 
+      objectReference: {fileID: 4530519562598156724}
+    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _updateBroadcaster
+      value: 
+      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _colorIndex
       value: 2
@@ -3147,6 +3159,18 @@ PrefabInstance:
       propertyPath: _updateBroadcaster
       value: 
       objectReference: {fileID: 6724047247422959637}
+    - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _bodyRoots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _bodyRoots.Array.data[0]
+      value: 
+      objectReference: {fileID: 5871589246082627324}
+    - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: _bodyRoots.Array.data[1]
+      value: 
+      objectReference: {fileID: 7577719417637511771}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _bodyViewes.Array.data[0]
       value: 

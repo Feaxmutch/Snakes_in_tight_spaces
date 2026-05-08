@@ -41,7 +41,5 @@ namespace ViewModel
                 action.Perform();
             }
         }
-
-
     }
 }

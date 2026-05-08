@@ -3,14 +3,15 @@ using Other;
 
 namespace Model
 {
-    public class Level
+    public class Level : ILevel
     {
+        private static Level _currentLevel;
         private Gamemode _gamemode;
         private Grid _grid;
 
         public static event Action Started;
 
-        public static Level CurrentLevel { get; private set; }
+        public static ILevel CurrentLevel => _currentLevel;
 
         public IGamemode Gamemode => _gamemode;
 
@@ -21,11 +22,6 @@ namespace Model
             _gamemode = gamemode;
             _grid = new();
             Initialize(objects);
-        }
-
-        public void Initialize(Array2d<GridObject> objects)
-        {
-            _grid.Initialize(objects);
         }
 
         public static bool IsActive()
@@ -40,7 +36,7 @@ namespace Model
                 throw new Exception("Level is allready active. Stop the current level before starting a new level");
             }
 
-            CurrentLevel = level;
+            _currentLevel = level;
             level.OnStart();
             Started?.Invoke();
         }
@@ -49,8 +45,14 @@ namespace Model
         {
             if (IsActive())
             {
-                CurrentLevel = null;
+                _currentLevel.StopGamemode();
+                _currentLevel = null;
             }
+        }
+
+        public void StopGamemode()
+        {
+            _gamemode.End();
         }
 
         public void OnUpdate(float deltaTime)
@@ -62,6 +64,11 @@ namespace Model
         {
             _grid.StartObjects();
             _gamemode.Start();
+        }
+
+        private void Initialize(Array2d<GridObject> objects)
+        {
+            _grid.Initialize(objects);
         }
     }
 }

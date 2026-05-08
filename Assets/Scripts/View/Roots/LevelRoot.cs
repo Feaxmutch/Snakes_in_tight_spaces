@@ -22,8 +22,6 @@ public class LevelRoot : MonoBehaviour
     public Level Compose(LevelData levelData, Gamemode gamemode)
     {
         Array2d<GridObject> levelMatrix = new(levelData.Size.x, levelData.Size.y);
-        ColoredObjectFactory coloredFactory = new();
-        GridObjectFactory factory = new();
 
         ComposeViews(_appleRoots, levelMatrix);
         ComposeViews(_goldAppleRoots, levelMatrix);

@@ -1,18 +1,23 @@
 using UnityEngine;
 using ViewModel;
 
-public abstract class WindowRooot<VM, V> : MonoBehaviour where VM : WindowVM, new() where V : WindowV
+[System.Serializable]
+public abstract class WindowRooot<VM, V> : BaseWindowRoot where VM : WindowVM, new() where V : WindowV
 {
     [SerializeField] private bool _isVisibleOnStart;
     [SerializeField] private ButtonV[] _buttons;
     [SerializeField] private GlobalEvent[] _showEvents;
     [SerializeField] private GlobalEvent[] _hideEvents;
 
-    [field : SerializeField] public V View { get; private set; } 
-    
-    public VM ViewModel {get; protected set; }
+    private VM _windowVM;
 
-    public void Compose()
+    [field : SerializeField] public V View { get; private set; }
+
+    public override IWindowVM BaseViewModel => _windowVM;
+
+    public VM ViewModel {get { return _windowVM; } protected set { _windowVM = value; } }
+
+    public override void Compose()
     {
         CreateAll();
         InitAll();
