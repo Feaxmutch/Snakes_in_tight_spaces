@@ -10,6 +10,7 @@ namespace Model
         private Grid _grid;
 
         public static event Action Started;
+        public static event Action Stoping;
 
         public static ILevel CurrentLevel => _currentLevel;
 
@@ -45,6 +46,7 @@ namespace Model
         {
             if (IsActive())
             {
+                Stoping?.Invoke();
                 _currentLevel.StopGamemode();
                 _currentLevel = null;
             }

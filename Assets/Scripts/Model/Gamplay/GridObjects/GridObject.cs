@@ -22,7 +22,7 @@ namespace Model
             if (IsInLevel(true))
             {
                 PositionChanged?.Invoke(GetPosition());
-                Level.CurrentLevel.Gamemode.Ended += Destroy;
+                Level.Stoping += Destroy;
                 Started?.Invoke();
             }
         }
