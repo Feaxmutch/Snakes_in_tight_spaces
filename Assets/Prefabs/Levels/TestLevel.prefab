@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateBroadcaster: {fileID: 6724047247422959637}
+  <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 715474786442799447}
   _colorIndex: 2
 --- !u!1 &2918772377100006117
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateBroadcaster: {fileID: 6724047247422959637}
+  <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 5479382939086345917}
   _colorIndex: 1
 --- !u!1 &6766662725160797137
@@ -1431,6 +1431,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
       propertyPath: _updateBroadcaster
+      value: 
+      objectReference: {fileID: 6724047247422959637}
+    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
       value: 
       objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 6889654904692366322, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
@@ -2210,6 +2214,10 @@ PrefabInstance:
       propertyPath: _updateBroadcaster
       value: 
       objectReference: {fileID: 6724047247422959637}
+    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
+      value: 
+      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _colorIndex
       value: 2
@@ -2662,6 +2670,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
       propertyPath: _updateBroadcaster
+      value: 
+      objectReference: {fileID: 6724047247422959637}
+    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
       value: 
       objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 6889654904692366322, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
@@ -3301,9 +3313,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: _openData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d8ba5b2b57a2bd4981a97bfde017f5f, type: 2}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: _closeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 62d242c2e66853244b5131a2ca9fdfa8, type: 2}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
+      value: 
+      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 9139421807510101841, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 1
@@ -3382,9 +3406,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: _openData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d8ba5b2b57a2bd4981a97bfde017f5f, type: 2}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: _closeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 62d242c2e66853244b5131a2ca9fdfa8, type: 2}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
+      value: 
+      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 9139421807510101841, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 2
@@ -3719,6 +3755,10 @@ PrefabInstance:
       objectReference: {fileID: 4530519562598156724}
     - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _updateBroadcaster
+      value: 
+      objectReference: {fileID: 6724047247422959637}
+    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
+      propertyPath: <UpdateBroadcaster>k__BackingField
       value: 
       objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}

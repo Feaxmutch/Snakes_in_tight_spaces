@@ -4,9 +4,9 @@ using ViewModel;
 
 public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
 {
-    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
-
     private bool _isUseInterpolation = false;
+    
+    [field : SerializeField] public UpdateBroadcaster UpdateBroadcaster {get; private set;}
 
     [field : SerializeField] public V View { get; private set; }
 
@@ -51,7 +51,7 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
     protected virtual void InitViewModel()
     {
         ViewModel.SetSpeed(InterpolationSpeed);
-        ViewModel.Initialize(Model, _isUseInterpolation, _updateBroadcaster);
+        ViewModel.Initialize(Model, _isUseInterpolation, UpdateBroadcaster);
     }
 
     protected virtual void InitView()

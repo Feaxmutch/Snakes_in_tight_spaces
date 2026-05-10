@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1833825519818221217}
   - component: {fileID: 9139421807510101841}
   - component: {fileID: 8876840514505701783}
+  - component: {fileID: 3775146681391197930}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -119,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f4e7ccfc34ea44abc2c293bfc41984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorIndex: 0
 --- !u!114 &8876840514505701783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,4 +132,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370e57f900560be4ab6884d8dbd666b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <UpdateBroadcaster>k__BackingField: {fileID: 3775146681391197930}
   <View>k__BackingField: {fileID: 9139421807510101841}
+  _colorIndex: 0
+  _openData: {fileID: 11400000, guid: 13a6da408e2f96e46b4935ceb7160405, type: 2}
+  _closeData: {fileID: 11400000, guid: af350f0e43db7264ba9b7278f1320831, type: 2}
+--- !u!114 &3775146681391197930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984250852527284188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

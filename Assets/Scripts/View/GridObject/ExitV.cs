@@ -1,10 +1,15 @@
 using ViewModel;
-using DG.Tweening;
+using UnityEngine;
 
 public class ExitV : ColoredObjectV
 {
     private ExitVM _viewModel;
-    private float _openOffset = 1; 
+    private Vector3 _basePosition;
+
+    private void Awake()
+    {
+        _basePosition = transform.position;
+    }
 
     protected override void OnEnable()
     {
@@ -12,7 +17,7 @@ public class ExitV : ColoredObjectV
 
         if (IsInitialized)
         {
-            _viewModel.IsOpened.Changed += UpdateOpenState;
+            _viewModel.YOffset.Changed += UpdateYOffset;
         }
     }
 
@@ -22,22 +27,20 @@ public class ExitV : ColoredObjectV
 
         if (IsInitialized)
         {
-            _viewModel.IsOpened.Changed -= UpdateOpenState;
+            _viewModel.YOffset.Changed -= UpdateYOffset;
         }
     }
 
     public void Initialize(ExitVM viewModel)
     {
         _viewModel = viewModel;
-        _viewModel.IsOpened.Changed += UpdateOpenState;
-        UpdateOpenState(_viewModel.IsOpened.Value);
+        _viewModel.YOffset.Changed += UpdateYOffset;
+        UpdateYOffset(_viewModel.YOffset.Value);
     }
 
-    private void UpdateOpenState(bool isOpened)
+    private void UpdateYOffset(float value)
     {
-        if (isOpened)
-        {
-            transform.DOMoveY(transform.position.y + _openOffset, 1);
-        }
+        Vector3 newOffset = Vector3.up * (_basePosition.y + value);
+        transform.position = _basePosition + newOffset;
     }
 }
