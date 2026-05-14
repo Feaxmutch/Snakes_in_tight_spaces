@@ -1,3 +1,4 @@
+using Model;
 using UnityEngine;
 using ViewModel;
 
@@ -23,5 +24,13 @@ public class LevelSelector : BootstrapComponent<LevelSelector>, ILevelSelector
     public void NextLevel()
     {
         _selectedIndex++;
+    }
+
+    private void OnDestroy()
+    {
+        if (Level.IsActive())
+        {
+            Level.Stop();
+        }
     }
 }

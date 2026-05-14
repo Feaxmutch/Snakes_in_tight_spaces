@@ -12,6 +12,26 @@ public class ColoredObjectV : DefaultGridObjectV
         _meshRenderer = GetComponent<MeshRenderer>();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        if (IsInitialized)
+        {
+            _viewModel.Color.Changed += SetColor;
+        }
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        if (IsInitialized)
+        {
+            _viewModel.Color.Changed -= SetColor;
+        }
+    }
+
     public void Initialize(ColoredObjectVM viewModel)
     {
         _viewModel = viewModel;
