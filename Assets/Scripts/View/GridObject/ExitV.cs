@@ -11,9 +11,16 @@ public class ExitV : ColoredObjectV
         _basePosition = transform.position;
     }
 
-    protected override void OnEnable()
+    public void Initialize(ExitVM viewModel)
     {
-        base.OnEnable();
+        _viewModel = viewModel;
+        _viewModel.YOffset.Changed += UpdateYOffset;
+        UpdateYOffset(_viewModel.YOffset.Value);
+    }
+
+    protected override void Subscribe()
+    {
+        base.Subscribe();
 
         if (IsInitialized)
         {
@@ -21,21 +28,14 @@ public class ExitV : ColoredObjectV
         }
     }
 
-    protected override void OnDisable()
+    protected override void Unsubscribe()
     {
-        base.OnDisable();
+        base.Unsubscribe();
 
         if (IsInitialized)
         {
             _viewModel.YOffset.Changed -= UpdateYOffset;
         }
-    }
-
-    public void Initialize(ExitVM viewModel)
-    {
-        _viewModel = viewModel;
-        _viewModel.YOffset.Changed += UpdateYOffset;
-        UpdateYOffset(_viewModel.YOffset.Value);
     }
 
     private void UpdateYOffset(float value)

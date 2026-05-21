@@ -9,9 +9,18 @@ public class SnakeHeadV : ColoredObjectV
     
     private SnakeVM _vewModel;
 
-    protected override void OnEnable()
+    public void Initialize(SnakeVM viewModel)
     {
-        base.OnEnable();
+        _vewModel = viewModel;
+        _vewModel.Growed += CreateBody;
+        _vewModel.Rotation.Changed += UpdateRotation;
+        Level.Started += CreateHat;
+        UpdateRotation(_vewModel.Rotation.Value);
+    }
+
+    protected override void Subscribe()
+    {
+        base.Subscribe();
 
         if (IsInitialized)
         {
@@ -20,24 +29,15 @@ public class SnakeHeadV : ColoredObjectV
         }
     }
 
-    protected override void OnDisable()
+    protected override void Unsubscribe()
     {
-        base.OnDisable();
+        base.Unsubscribe();
 
         if (IsInitialized)
         {
             _vewModel.Growed -= CreateBody;
             Level.Started -= CreateHat;
         }
-    }
-
-    public void Initialize(SnakeVM viewModel)
-    {
-        _vewModel = viewModel;
-        _vewModel.Growed += CreateBody;
-        _vewModel.Rotation.Changed += UpdateRotation;
-        Level.Started += CreateHat;
-        UpdateRotation(_vewModel.Rotation.Value);
     }
 
     private void CreateBody(SnakeBody body)

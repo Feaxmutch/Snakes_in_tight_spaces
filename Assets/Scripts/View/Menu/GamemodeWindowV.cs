@@ -15,6 +15,26 @@ public class GamemodeWindowV : FadebleWindowV
         _viewModel.TimerText.Changed += UpdateText;
     }
 
+    protected override void Subscribe()
+    {
+        base.Subscribe();
+
+        if (Initialized)
+        {
+            _viewModel.TimerText.Changed += UpdateText;
+        }
+    }
+
+    protected override void Unsubscribe()
+    {
+        base.Unsubscribe();
+
+        if (Initialized)
+        {
+            _viewModel.TimerText.Changed -= UpdateText;
+        }
+    }
+
     private void UpdateText(string actualText)
     {
         _timerText.text = actualText;

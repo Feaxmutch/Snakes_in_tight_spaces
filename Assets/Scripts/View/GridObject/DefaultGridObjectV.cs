@@ -4,38 +4,19 @@ public class DefaultGridObjectV : GridObjectV
 {
     private GridObjectVM _viewModel;
 
-    protected virtual void OnEnable()
+    private void OnEnable()
     {
-        if (IsInitialized)
-        {
-            if (_viewModel.IsUseInterpolation)
-            {
-                _viewModel.InterpolatedPosition.Changed += UpdatePosition;
-            }
-            else
-            {
-                _viewModel.ModelPosition.Changed += UpdatePosition;
-            }
-
-            _viewModel.Destroyed += OnDestroyed;
-        }
+        Subscribe();
     }
 
-    protected virtual void OnDisable()
+    private void OnDisable()
     {
-        if (IsInitialized)
-        {
-            if (_viewModel.IsUseInterpolation)
-            {
-                _viewModel.InterpolatedPosition.Changed -= UpdatePosition;
-            }
-            else
-            {
-                _viewModel.ModelPosition.Changed -= UpdatePosition;
-            }
+        Unsubscribe();
+    }
 
-            _viewModel.Destroyed -= OnDestroyed;
-        }
+    private void OnApplicationQuit()
+    {
+        Unsubscribe();
     }
 
     public void Initialize(GridObjectVM viewModel)
@@ -55,5 +36,39 @@ public class DefaultGridObjectV : GridObjectV
 
         _viewModel.Destroyed += OnDestroyed;
         Initialize();
+    }
+
+    protected virtual void Subscribe()
+    {
+        if (IsInitialized)
+        {
+            if (_viewModel.IsUseInterpolation)
+            {
+                _viewModel.InterpolatedPosition.Changed += UpdatePosition;
+            }
+            else
+            {
+                _viewModel.ModelPosition.Changed += UpdatePosition;
+            }
+
+            _viewModel.Destroyed += OnDestroyed;
+        }
+    }
+
+    protected virtual void Unsubscribe()
+    {
+        if (IsInitialized)
+        {
+            if (_viewModel.IsUseInterpolation)
+            {
+                _viewModel.InterpolatedPosition.Changed -= UpdatePosition;
+            }
+            else
+            {
+                _viewModel.ModelPosition.Changed -= UpdatePosition;
+            }
+
+            _viewModel.Destroyed -= OnDestroyed;
+        }
     }
 }
