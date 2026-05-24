@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CanvasGroup))]
 public class FadebleWindowV : AnimatedWindowV
 {
     private CanvasGroup _canvasGroup;
