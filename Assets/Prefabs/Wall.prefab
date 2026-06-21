@@ -119,6 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f225ef098e77a8945a252202d8ffd044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skins:
+  - {fileID: 2017641837342502427, guid: 6b5196469c6934b4383e774cd33b0b64, type: 3}
+  - {fileID: 2017641837342502427, guid: 0ebbb96de6b10664788d35ebf6e9125d, type: 3}
+  - {fileID: 2017641837342502427, guid: b7c17891155b6f24193409a669279f8e, type: 3}
+  - {fileID: 2017641837342502427, guid: 0b73a4a23afdb1249aba24dd1f4a4f09, type: 3}
 --- !u!114 &7834580399852086565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,4 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540a3865f3fc2f646801ede551bc51aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <UpdateBroadcaster>k__BackingField: {fileID: 0}
   <View>k__BackingField: {fileID: 528510211733598816}
