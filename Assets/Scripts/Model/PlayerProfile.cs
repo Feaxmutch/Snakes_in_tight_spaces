@@ -23,6 +23,7 @@ namespace Model
 
         public void SetHat(int ID)
         {
+            if(ID.IsNegative()) throw new ArgumentOutOfRangeException(nameof(ID), "id не может быть отрицательным");
             HatID = ID;
         }
 
