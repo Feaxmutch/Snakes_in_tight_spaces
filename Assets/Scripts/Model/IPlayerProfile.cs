@@ -4,8 +4,6 @@ namespace Model
     {
         string Name { get; }
 
-        int LastLevel { get; }
-
         int HatID { get; }
 
         int Score { get; }

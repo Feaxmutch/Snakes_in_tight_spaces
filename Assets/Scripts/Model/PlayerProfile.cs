@@ -1,7 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Other;
+
 namespace Model
 {
     public class PlayerProfile : IPlayerProfile
     {
+        private List<int> _levelRecords = new();
+
         public PlayerProfile(string name)
         {
             Name =  name;
@@ -10,16 +17,13 @@ namespace Model
 
         public string Name { get; private set; }
 
-        public int LastLevel { get; private set; }
-
         public int HatID { get; private set;}
 
-        public int Score { get; private set; }
+        public int Score => LevelRecords.Sum();
 
-        public void SetLastLevel(int ID)
-        {
-            LastLevel = ID;
-        }
+        public IReadOnlyList<int> LevelRecords => _levelRecords;
+
+        public int LastOpenedLevel => _levelRecords.IndexOf(_levelRecords.Last());
 
         public void SetHat(int ID)
         {
@@ -27,16 +31,11 @@ namespace Model
             HatID = ID;
         }
 
-        public void SetScore(int value)
-        {
-            Score = value;
-        }
-
         private void SetDefault()
         {
-            LastLevel = 1;
             HatID = 0;
-            Score = 0;
+            _levelRecords.Clear();
+            _levelRecords.Add(0);
         }
     }
 }
