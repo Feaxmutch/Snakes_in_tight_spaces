@@ -44,4 +44,12 @@ public class LevelSelector : BootstrapComponent<LevelSelector>, ILevelSelector
         _selectedIndex++;
         LevelChanged?.Invoke();
     }
+
+    private void OnApplicationQuit()
+    {
+        if (Level.IsActive())
+        {
+            Level.Stop();
+        }
+    }
 }
