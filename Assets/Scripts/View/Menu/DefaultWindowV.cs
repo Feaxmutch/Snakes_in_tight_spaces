@@ -8,8 +8,9 @@ public class DefaultWindowV : AnimatedWindowV
 
     private RectTransform _rectTransform;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _rectTransform = GetComponent<RectTransform>();
     }
 

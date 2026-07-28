@@ -5,15 +5,16 @@ using ViewModel;
 public abstract class WindowV : MonoBehaviour
 {
     private WindowVM _viewModel;
-    private CanvasGroup _canvasGroup;
+    
+    protected CanvasGroup CanvasGroup { get; private set; }
 
     public IWindowVM ViewModel => _viewModel;
-
+    
     public bool Initialized { get; private set; } = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
+        CanvasGroup = GetComponent<CanvasGroup>();
     }
 
     private void OnEnable()
@@ -33,7 +34,7 @@ public abstract class WindowV : MonoBehaviour
 
     public void Initialize(WindowVM viewModel)
     {
-        if (_canvasGroup == null) Awake();
+        if (CanvasGroup == null) Awake();
         _viewModel = viewModel;
         _viewModel.IsActive.Changed += OnActiveState;
         OnActiveState(_viewModel.IsActive.Value);
@@ -56,5 +57,5 @@ public abstract class WindowV : MonoBehaviour
         }
     }
 
-    private void OnActiveState(bool value) => _canvasGroup.interactable = value;
+    private void OnActiveState(bool value) => CanvasGroup.interactable = value;
 }
