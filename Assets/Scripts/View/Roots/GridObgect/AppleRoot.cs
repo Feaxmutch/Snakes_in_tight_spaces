@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Color = Other.Color;
 
-public class AppleRoot : ColoredObjectRoot<Apple, AppleVM, AppleV>
+public class AppleRoot : EntityRoot<Apple, AppleVM, AppleV>
 {
     [field : SerializeField] public  AppleRoot Locker { get; private set; }
 
@@ -25,7 +25,7 @@ public class AppleRoot : ColoredObjectRoot<Apple, AppleVM, AppleV>
                 throw new Exception("Rekurcion detected. Locker locked by thef locker.");
             }
 
-            Locker.Compose();
+            Locker.Compose(ChapterId);
         }
 
         Model.Initialize(Locker.Model);
@@ -35,5 +35,11 @@ public class AppleRoot : ColoredObjectRoot<Apple, AppleVM, AppleV>
     {
         base.InitViewModel();
         ViewModel.Initialize(Model);
+    }
+
+    protected override void InitView()
+    {
+        base.InitView();
+        View.Initialize(ViewModel);
     }
 }

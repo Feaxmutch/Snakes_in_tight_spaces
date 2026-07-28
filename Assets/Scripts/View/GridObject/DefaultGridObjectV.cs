@@ -19,7 +19,7 @@ public class DefaultGridObjectV : GridObjectV
         Unsubscribe();
     }
 
-    public void Initialize(GridObjectVM viewModel)
+    public void Initialize(GridObjectVM viewModel, byte chapterId)
     {
         _viewModel = viewModel;
 
@@ -35,7 +35,7 @@ public class DefaultGridObjectV : GridObjectV
         }
 
         _viewModel.Destroyed += OnDestroyed;
-        Initialize();
+        Initialize(chapterId);
     }
 
     protected virtual void Subscribe()

@@ -3,12 +3,15 @@ using Vector2Int = Other.Vector2Int;
 
 public abstract class GridObjectV : MonoBehaviour
 {
+    public byte ChapterId { get; private set; }
+
     protected float YOffset { get; } = 0;
 
     public bool IsInitialized { get; private set; } = false;
 
-    public void Initialize()
+    public void Initialize(byte chapterId)
     {
+        ChapterId = chapterId;
         IsInitialized = true;
     }
 
@@ -28,6 +31,7 @@ public abstract class GridObjectV : MonoBehaviour
 
     protected void OnDestroyed()
     {
+        if(this == null || gameObject == null) return; //Разобраться почему становится null до вызова
         Destroy(gameObject);
     }
 }

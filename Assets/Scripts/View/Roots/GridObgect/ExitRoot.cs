@@ -5,7 +5,7 @@ using UnityEngine;
 using Vector2Int = Other.Vector2Int;
 using Animation = Other.Animation;
 
-public class ExitRoot : ColoredObjectRoot<Exit, ExitVM, ExitV>
+public class ExitRoot : EntityRoot<Exit, ExitVM, ExitV>
 {
     [SerializeField] private AnimationData _openData;
     [SerializeField] private AnimationData _closeData;

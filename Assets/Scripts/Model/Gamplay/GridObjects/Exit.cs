@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Model
 {
-    public class Exit : ColoredObject
+    public class Exit : Entity
     {
         private readonly ReactiveValue<bool> _isOpened = new();
         private Vector2Int _forwardDirection;
@@ -29,7 +29,7 @@ namespace Model
         public bool IsAplesExist()
         {
             List<Apple> apples = Level.CurrentLevel.Grid.GetObjectsOfType<Apple>();
-            List<Apple> targetApples = apples.Where(apple => apple.Color == Color).ToList();
+            List<Apple> targetApples = apples.Where(apple => apple.GroopId == GroopId).ToList();
             return targetApples.Count > 0;
         }
 

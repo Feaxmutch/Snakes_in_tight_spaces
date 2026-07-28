@@ -2,7 +2,7 @@ using Other;
 
 namespace Model
 {
-    public class Apple : ColoredObject
+    public class Apple : Entity
     {
         private readonly ReactiveValue<bool> _isLocked = new();
 

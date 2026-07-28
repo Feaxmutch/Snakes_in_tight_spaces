@@ -8,6 +8,7 @@ using Other;
 
 public class LevelRoot : MonoBehaviour
 {
+    [SerializeField] private byte _chapterId;
     [SerializeField] private FlorV _flor;
     [SerializeField] private Camera _camera;
     [SerializeField] private UpdateBroadcaster _updateBroadcaster;
@@ -30,7 +31,7 @@ public class LevelRoot : MonoBehaviour
 
         foreach (var snakeRoot in _snakes)
         {
-            Dictionary<Vector2Int, GridObject> composedSnake = snakeRoot.Compose(levelData.SnakesSpeed);
+            Dictionary<Vector2Int, GridObject> composedSnake = snakeRoot.Compose(levelData.SnakesSpeed, _chapterId);
             List<Vector2Int> positions = composedSnake.Keys.ToList();
 
             foreach (var position in positions)
@@ -71,7 +72,7 @@ public class LevelRoot : MonoBehaviour
         {
             if (roots[i].View.IsInitialized == false)
             {
-                roots[i].Compose();
+                roots[i].Compose(_chapterId);
             }
 
             levelObjects[modelPositions[i].X, modelPositions[i].Y] = roots[i].Model;

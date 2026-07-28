@@ -1,6 +1,6 @@
 namespace Model
 {
-    public class SnakeBody : ColoredObject
+    public class SnakeBody : Entity
     {
         public SnakeBody() : base() { }
     }

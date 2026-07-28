@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Model
 {
-    public class SnakeHeadFactory : ColoredObjectFactory
+    public class SnakeHeadFactory : EntityFactory
     {
-        public SnakeHead Create(Color color, float speed, List<SnakeBody> snakeBodies)
+        public SnakeHead Create(byte groopId, float speed, List<SnakeBody> snakeBodies)
         {
-            SnakeHead snakeHead = Create<SnakeHead>(color);
+            SnakeHead snakeHead = Create<SnakeHead>(groopId);
             snakeHead.Initialize(speed, snakeBodies);
             return snakeHead;
         }

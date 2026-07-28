@@ -1,7 +1,7 @@
 using ViewModel;
 using UnityEngine;
 
-public class ExitV : ColoredObjectV
+public class ExitV : EntityV
 {
     private ExitVM _viewModel;
     private Vector3 _basePosition;
@@ -14,8 +14,8 @@ public class ExitV : ColoredObjectV
     public void Initialize(ExitVM viewModel)
     {
         _viewModel = viewModel;
-        _viewModel.YOffset.Changed += UpdateYOffset;
-        UpdateYOffset(_viewModel.YOffset.Value);
+        _viewModel.DoorOffset.Changed += UpdateYOffset;
+        UpdateYOffset(_viewModel.DoorOffset.Value);
     }
 
     protected override void Subscribe()
@@ -24,7 +24,7 @@ public class ExitV : ColoredObjectV
 
         if (IsInitialized)
         {
-            _viewModel.YOffset.Changed += UpdateYOffset;
+            _viewModel.DoorOffset.Changed += UpdateYOffset;
         }
     }
 
@@ -34,7 +34,7 @@ public class ExitV : ColoredObjectV
 
         if (IsInitialized)
         {
-            _viewModel.YOffset.Changed -= UpdateYOffset;
+            _viewModel.DoorOffset.Changed -= UpdateYOffset;
         }
     }
 

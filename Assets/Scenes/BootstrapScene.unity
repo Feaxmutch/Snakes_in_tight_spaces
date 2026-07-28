@@ -195,7 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3950bb8f489a548429d097c83fcb9ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ColorPack>k__BackingField: {fileID: 11400000, guid: 290a66124e43f604ba40129deff87bd5, type: 2}
+  <Chapters>k__BackingField:
+  - {fileID: 11400000, guid: 68eed822d4779c346a76c1bb2fe6dc18, type: 2}
 --- !u!114 &368245442
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using System;
 
 namespace Model
 {
-    public class SnakeHead : ColoredObject
+    public class SnakeHead : Entity
     {
         private List<SnakeBody> _notAddedBodyes = new();
         private List<Vector2Int> _bodyPositions = new();
@@ -64,7 +64,7 @@ namespace Model
 
             if (ContainsOnPosition(nextPosition, out Exit exit))
             {
-                if (exit.Color == Color && exit.IsOpened.Value == true)
+                if (exit.GroopId == GroopId && exit.IsOpened.Value == true)
                 {
                     _patchPoints.Clear();
                     Vector2Int currentPosition = GetPosition();
@@ -90,7 +90,7 @@ namespace Model
                 }
 
                 SnakeBody snakeBody = new();
-                snakeBody.Initialize(Color);
+                snakeBody.Initialize(GroopId);
                 level.Grid.PlaceObject(snakeBody, lastBodyPosition);
                 Grow(snakeBody);
             }
@@ -124,7 +124,7 @@ namespace Model
 
             if (ContainsOnPosition(position, out Apple apple))
             {
-                if (apple.Color != Color || apple.IsLocked.Value)
+                if (apple.GroopId != GroopId || apple.IsLocked.Value)
                 {   
                     return;
                 }

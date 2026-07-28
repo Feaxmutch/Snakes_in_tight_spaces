@@ -2,7 +2,7 @@ using Model;
 using UnityEngine;
 using ViewModel;
 
-public class SnakeHeadV : ColoredObjectV
+public class SnakeHeadV : EntityV
 {
     [SerializeField] public SnakeBodyRootFactory _bodyFactory;
     [SerializeField] public UpdateBroadcaster _updateBroadcaster;
@@ -43,10 +43,10 @@ public class SnakeHeadV : ColoredObjectV
     private void CreateBody(SnakeBody body)
     {
         SnakeBodyRoot root = (SnakeBodyRoot)_bodyFactory.Create();
-        root.SetForceColor(_vewModel.Color.Value);
+        root.SetForceGroopId(_vewModel.GroopId);
         root.SetSpeed(_vewModel.InterpolationSpeed);
         root.SetBody(body);
-        root.Compose();
+        root.Compose(ChapterId);
     }
 
     private void UpdateRotation(Quaternion quaternion)

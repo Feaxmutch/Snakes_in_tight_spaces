@@ -3,7 +3,7 @@ using ViewModel;
 using Other;
 
 
-public class SnakeBodyRoot : ColoredObjectRoot<SnakeBody, ColoredObjectVM, SnakeBodyV>
+public class SnakeBodyRoot : EntityRoot<SnakeBody, EntityVM, SnakeBodyV>
 {
     public void SetBody(SnakeBody body)
     {

@@ -6,6 +6,8 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
 {
     private bool _isUseInterpolation = false;
     
+    [field : SerializeField] public byte ChapterId { get; private set; }
+
     [field : SerializeField] public UpdateBroadcaster UpdateBroadcaster {get; private set;}
 
     [field : SerializeField] public V View { get; private set; }
@@ -16,8 +18,9 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
 
     protected VM ViewModel { get; set; }
 
-    public virtual void Compose()
+    public void Compose(byte chapterId)
     {
+        ChapterId = chapterId;
         CreateAll();
         InitAll();
     }
@@ -56,7 +59,7 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
 
     protected virtual void InitView()
     {
-        View.Initialize(ViewModel);
+        View.Initialize(ViewModel, ChapterId);
     }
 
     private void InitAll()

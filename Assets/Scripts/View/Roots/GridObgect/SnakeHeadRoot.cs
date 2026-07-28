@@ -3,7 +3,7 @@ using ViewModel;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnakeHeadRoot : ColoredObjectRoot<SnakeHead, SnakeVM, SnakeHeadV>
+public class SnakeHeadRoot : EntityRoot<SnakeHead, SnakeVM, SnakeHeadV>
 {
     [SerializeField] private InputBroadcaster _inputBroadcaster;
 

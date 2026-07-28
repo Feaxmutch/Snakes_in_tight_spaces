@@ -7,7 +7,7 @@ using Color = Other.Color;
 
 namespace ViewModel
 {
-    public class SnakeVM : ColoredObjectVM
+    public class SnakeVM : EntityVM
     {
         private readonly ReactiveValue<Quaternion> _rotation =new(Quaternion.LookRotation(Vector3.right));
 

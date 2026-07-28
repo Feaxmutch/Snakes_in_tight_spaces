@@ -8,7 +8,7 @@ public class SnakeRoot : MonoBehaviour
     [SerializeField] private List<SnakeBodyRoot> _bodyRoots;
     [SerializeField] private SnakeHeadRoot _headRoot;
 
-    public Dictionary<Vector2Int, GridObject> Compose(float speed)
+    public Dictionary<Vector2Int, GridObject> Compose(float speed, byte chapterId)
     {
         int x;
         int y;
@@ -19,7 +19,7 @@ public class SnakeRoot : MonoBehaviour
         {
             x = (int)bodyRoot.transform.position.x;
             y = (int)bodyRoot.transform.position.z;
-            bodyRoot.Compose();
+            bodyRoot.Compose(chapterId);
             gridObjects[new Vector2Int(x, y)] = bodyRoot.Model;
             bodyes.Add(bodyRoot.Model);
             Destroy(bodyRoot.gameObject);
@@ -29,7 +29,7 @@ public class SnakeRoot : MonoBehaviour
         y = (int)_headRoot.transform.position.z;
         _headRoot.SetBodies(bodyes);
         _headRoot.SetSpeed(speed);
-        _headRoot.Compose();
+        _headRoot.Compose(chapterId);
         gridObjects[new Vector2Int(x, y)] = _headRoot.Model;
         return gridObjects;
     }

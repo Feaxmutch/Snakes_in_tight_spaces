@@ -1,5 +1,5 @@
 
-public class SnakeBodyV : ColoredObjectV
+public class SnakeBodyV : EntityV
 {
     
 }

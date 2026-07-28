@@ -4,7 +4,7 @@ using UnityEngine;
 using ViewModel;
 using Color = Other.Color;
 
-public class GoldAppleRoot : ColoredObjectRoot<GoldApple, AppleVM, GoldAppleV>
+public class GoldAppleRoot : EntityRoot<GoldApple, AppleVM, GoldAppleV>
 {
     [field: SerializeField] public AppleRoot Locker { get; private set; }
 
@@ -22,10 +22,10 @@ public class GoldAppleRoot : ColoredObjectRoot<GoldApple, AppleVM, GoldAppleV>
         {
             if (Locker.View == View)
             {
-                throw new Exception("Rekurcion detected. Locker locked by thef locker.");
+                throw new Exception("Recursion detected. Locker locked by it self.");
             }
 
-            Locker.Compose();
+            Locker.Compose(ChapterId);
         }
 
         Model.Initialize(Locker.Model);
@@ -35,5 +35,11 @@ public class GoldAppleRoot : ColoredObjectRoot<GoldApple, AppleVM, GoldAppleV>
     {
         base.InitViewModel();
         ViewModel.Initialize(Model);
+    }
+
+    protected override void InitView()
+    {
+        base.InitView();
+        View.Initialize(ViewModel);
     }
 }

@@ -1,10 +1,9 @@
 using Model;
 using Other;
-using Color = Other.Color;
 
 namespace ViewModel
 {
-    public class ExitVM : ColoredObjectVM
+    public class ExitVM : EntityVM
     {
         private Animator _animator;
         private Animation _openAnimation;
@@ -12,9 +11,9 @@ namespace ViewModel
 
         private ReactiveValue<bool> _isOpened = new();
 
-        private ReactiveValue<float> _yOffset = new();
+        private ReactiveValue<float> _doorOffset = new();
 
-        public IReactiveValue<float> YOffset => _yOffset;
+        public IReactiveValue<float> DoorOffset => _doorOffset;
 
         public void Initialize(Exit exit, Animation openAnimation, Animation closeAnimation, IUnityUpdate unityUpdate)
         {
@@ -31,8 +30,8 @@ namespace ViewModel
             _isOpened.Subscribe(exit.IsOpened);
             _isOpened.Value = exit.IsOpened.Value;
             _isOpened.Changed += PlayAnimation;
-            _yOffset.Subscribe(_openAnimation.AnimatedValue);
-            _yOffset.Subscribe(_closeAnimation.AnimatedValue);
+            _doorOffset.Subscribe(_openAnimation.AnimatedValue);
+            _doorOffset.Subscribe(_closeAnimation.AnimatedValue);
         }
 
         private void PlayAnimation(bool isOpened)

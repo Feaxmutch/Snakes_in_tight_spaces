@@ -2,18 +2,18 @@ using Other;
 
 namespace Model
 {
-    public class AppleFactory : ColoredObjectFactory
+    public class AppleFactory : EntityFactory
     {
-        public Apple Create(Color color, Apple locker = null)
+        public Apple Create(byte groopId, Apple locker = null)
         {
-            Apple apple = Create<Apple>(color);
+            Apple apple = Create<Apple>(groopId);
             apple.Initialize(locker);
             return apple;
         }
 
-        public T Create<T>(Apple locker = null) where T : Apple, new()
+        public T Createdd<T>(Apple locker = null) where T : Apple, new()
         {
-            T apple = Create<T>(new Color());
+            T apple = Create<T>(0);
             apple.Initialize(locker);
             return apple;
         }
