@@ -24,6 +24,7 @@ public class LevelSelector : BootstrapComponent<LevelSelector>, ILevelSelector
 
         if (Level.IsActive())
         {
+            Debug.LogWarning("Level is active at the start. This is not correct behaviour");
             Level.Stop();
         }
     }
