@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77eafb4ffc85454caa7c55a1fc300cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chapterId: 0
   _flor: {fileID: 9066231570569146674}
   _camera: {fileID: 8540545523668310856}
   _updateBroadcaster: {fileID: 6724047247422959637}
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ChapterId>k__BackingField: 0
   <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 715474786442799447}
   _groopId: 1
@@ -961,6 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d2e1ad3e11ad145a1fe5bff6d71e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ChapterId>k__BackingField: 0
   <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 5479382939086345917}
   _groopId: 0
@@ -3422,6 +3425,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
+      propertyPath: _groopId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _openData
       value: 
       objectReference: {fileID: 11400000, guid: 9d8ba5b2b57a2bd4981a97bfde017f5f, type: 2}
@@ -3954,6 +3961,10 @@ PrefabInstance:
     - target: {fileID: 7095415915246505797, guid: ea12611c8c50d544a907d96f8e718749, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913124245714012177, guid: ea12611c8c50d544a907d96f8e718749, type: 3}
+      propertyPath: _groopId
+      value: 99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
