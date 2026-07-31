@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameplayMaterials : BootstrapComponent<GameplayMaterials>
 {
-    [field : SerializeField] public ChapterMaterials[] Chapters { get; private set; }
+    [field : SerializeField] public StyleMaterials[] Styles { get; private set; }
 
     protected override void Awake()
     {

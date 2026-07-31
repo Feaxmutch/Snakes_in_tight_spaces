@@ -7,14 +7,14 @@ public class EntityV : DefaultGridObjectV
     private EntityVM _viewModel;
     private MeshRenderer _meshRenderer;
 
-    protected ChapterMaterials Materials { get; private set; }
+    protected StyleMaterials Materials { get; private set; }
 
     private void Start()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    public void Initialize(EntityVM viewModel, ChapterMaterials materials)
+    public void Initialize(EntityVM viewModel, StyleMaterials materials)
     {
         _viewModel = viewModel;
         Materials = materials;

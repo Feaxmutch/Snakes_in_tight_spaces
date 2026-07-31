@@ -8,6 +8,6 @@ public class WallV : DefaultGridObjectV
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = GameplayMaterials.Instance.Chapters[ChapterId].Wall;
+        _meshRenderer.material = GameplayMaterials.Instance.Styles[ChapterId].Wall;
     }
 }

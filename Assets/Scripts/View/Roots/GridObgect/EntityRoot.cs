@@ -35,6 +35,6 @@ public class EntityRoot<M, VM, V> : GridObjectRoot<M, VM, V> where M : Entity, n
     protected override void InitView()
     {
         base.InitView();
-        View.Initialize(ViewModel, GameplayMaterials.Instance.Chapters[ChapterId]);
+        View.Initialize(ViewModel, GameplayMaterials.Instance.Styles[ChapterId]);
     }
 }

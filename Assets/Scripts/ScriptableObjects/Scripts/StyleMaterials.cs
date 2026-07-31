@@ -1,7 +1,7 @@
 using UnityEngine; 
 
 [CreateAssetMenu(fileName = "new materials", menuName = "create chapter materials")]
-public class ChapterMaterials : ScriptableObject
+public class StyleMaterials : ScriptableObject
 {
     [field : SerializeField] public Material Wall { get; private set; }
 
