@@ -11,9 +11,9 @@ namespace ViewModel
 
         private ReactiveValue<bool> _isOpened = new();
 
-        private ReactiveValue<float> _doorOffset = new();
+        private ReactiveValue<float> _openProgres = new();
 
-        public IReactiveValue<float> DoorOffset => _doorOffset;
+        public IReactiveValue<float> OpenProgres => _openProgres;
 
         public void Initialize(Exit exit, Animation openAnimation, Animation closeAnimation, IUnityUpdate unityUpdate)
         {
@@ -30,8 +30,8 @@ namespace ViewModel
             _isOpened.Subscribe(exit.IsOpened);
             _isOpened.Value = exit.IsOpened.Value;
             _isOpened.Changed += PlayAnimation;
-            _doorOffset.Subscribe(_openAnimation.AnimatedValue);
-            _doorOffset.Subscribe(_closeAnimation.AnimatedValue);
+            _openProgres.Subscribe(_openAnimation.AnimatedValue);
+            _openProgres.Subscribe(_closeAnimation.AnimatedValue);
         }
 
         private void PlayAnimation(bool isOpened)

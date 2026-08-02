@@ -20,7 +20,7 @@ public class EntityV : DefaultGridObjectV
         Materials = materials;
         SetDefaultMaterial();
     }
-    protected void SetMaterial(Material material)
+    protected virtual void SetMaterial(Material material)
     {
         if (_meshRenderer == null)
         {

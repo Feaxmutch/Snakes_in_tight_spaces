@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ExitV : EntityV
 {
+    [SerializeField] private DoorV[] _doors;
+
     private ExitVM _viewModel;
     private Vector3 _basePosition;
 
@@ -14,8 +16,8 @@ public class ExitV : EntityV
     public void Initialize(ExitVM viewModel)
     {
         _viewModel = viewModel;
-        _viewModel.DoorOffset.Changed += UpdateYOffset;
-        UpdateYOffset(_viewModel.DoorOffset.Value);
+        _viewModel.OpenProgres.Changed += UpdateProgres;
+        UpdateProgres(_viewModel.OpenProgres.Value);
     }
 
     protected override void Subscribe()
@@ -24,7 +26,7 @@ public class ExitV : EntityV
 
         if (IsInitialized)
         {
-            _viewModel.DoorOffset.Changed += UpdateYOffset;
+            _viewModel.OpenProgres.Changed += UpdateProgres;
         }
     }
 
@@ -34,13 +36,25 @@ public class ExitV : EntityV
 
         if (IsInitialized)
         {
-            _viewModel.DoorOffset.Changed -= UpdateYOffset;
+            _viewModel.OpenProgres.Changed -= UpdateProgres;
         }
     }
 
-    private void UpdateYOffset(float value)
+    private void UpdateProgres(float value)
     {
-        Vector3 newOffset = Vector3.up * (_basePosition.y + value);
-        transform.position = _basePosition + newOffset;
+        foreach (var door in _doors)
+        {
+            door.SetPositionOffset(value);
+        }
+    }
+
+    protected override void SetMaterial(Material material)
+    {
+        base.SetMaterial(material);
+
+        foreach (var door in _doors)
+        {
+            door.SetMaterial(material);
+        }
     }
 }
