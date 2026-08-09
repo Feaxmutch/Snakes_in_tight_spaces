@@ -8,7 +8,7 @@ using Other;
 
 public class LevelRoot : MonoBehaviour
 {
-    [SerializeField] private byte _chapterId;
+    [SerializeField] private byte _styleId;
     [SerializeField] private FlorV _flor;
     [SerializeField] private Camera _camera;
     [SerializeField] private UpdateBroadcaster _updateBroadcaster;
@@ -72,7 +72,7 @@ public class LevelRoot : MonoBehaviour
         {
             if (roots[i].View.IsInitialized == false)
             {
-                roots[i].Compose(_chapterId);
+                roots[i].Compose(_styleId);
             }
 
             levelObjects[modelPositions[i].X, modelPositions[i].Y] = roots[i].Model;

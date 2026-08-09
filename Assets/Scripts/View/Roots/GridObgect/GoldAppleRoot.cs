@@ -25,7 +25,7 @@ public class GoldAppleRoot : EntityRoot<GoldApple, AppleVM, GoldAppleV>
                 throw new Exception("Recursion detected. Locker locked by it self.");
             }
 
-            Locker.Compose(ChapterId);
+            Locker.Compose(StyleId);
         }
 
         Model.Initialize(Locker.Model);

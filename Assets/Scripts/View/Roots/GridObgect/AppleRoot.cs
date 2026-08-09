@@ -25,7 +25,7 @@ public class AppleRoot : EntityRoot<Apple, AppleVM, AppleV>
                 throw new Exception("Rekurcion detected. Locker locked by thef locker.");
             }
 
-            Locker.Compose(ChapterId);
+            Locker.Compose(StyleId);
         }
 
         Model.Initialize(Locker.Model);
