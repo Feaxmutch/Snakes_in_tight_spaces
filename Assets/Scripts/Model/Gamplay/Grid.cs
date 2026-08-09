@@ -66,8 +66,6 @@ namespace Model
             return cells.Length > 0;
         }
 
-
-
         public void PlaceObject(GridObject gridObject, Vector2Int position)
         {
             if (ContainsObject(gridObject))
