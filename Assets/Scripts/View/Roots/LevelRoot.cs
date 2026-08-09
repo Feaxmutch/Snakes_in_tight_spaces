@@ -12,31 +12,25 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private FlorV _flor;
     [SerializeField] private Camera _camera;
     [SerializeField] private UpdateBroadcaster _updateBroadcaster;
+    [SerializeField] private BaseGridObjectRoot[] _gridObjectRoots;
     [SerializeField] private SnakeRoot[] _snakes;
-    [SerializeField] private AppleRoot[] _appleRoots;
-    [SerializeField] private GoldAppleRoot[] _goldAppleRoots;
-    [SerializeField] private WallRoot[] _wallRoots;
-    [SerializeField] private ExitRoot[] _exitRoots;
 
     [field : SerializeField] public DefaultWindowRoot[] Windows { get; private set; }
 
     public Level Compose(LevelData levelData, Gamemode gamemode)
     {
-        Array2d<GridObject> levelMatrix = new(levelData.Size.x, levelData.Size.y);
+        Array2d<GridObject> levelGrid = new(levelData.Size.x, levelData.Size.y);
 
-        ComposeViews(_appleRoots, levelMatrix);
-        ComposeViews(_goldAppleRoots, levelMatrix);
-        ComposeViews(_wallRoots, levelMatrix);
-        ComposeViews(_exitRoots, levelMatrix);
+        ComposeViews(_gridObjectRoots, levelGrid);
 
         foreach (var snakeRoot in _snakes)
         {
-            Dictionary<Vector2Int, GridObject> composedSnake = snakeRoot.Compose(levelData.SnakesSpeed, _chapterId);
+            Dictionary<Vector2Int, GridObject> composedSnake = snakeRoot.Compose(levelData.SnakesSpeed, _styleId);
             List<Vector2Int> positions = composedSnake.Keys.ToList();
 
             foreach (var position in positions)
             {
-                levelMatrix[position.X, position.Y] = composedSnake[position];
+                levelGrid[position.X, position.Y] = composedSnake[position];
             }
         }
 
@@ -49,33 +43,30 @@ public class LevelRoot : MonoBehaviour
         }
 
         _flor.Scale(levelData.Size);
-        Level level = new(levelMatrix, gamemode);
+        Level level = new(levelGrid, gamemode);
         LevelVM levelVM = new(level, _updateBroadcaster);
         return level;
     }
 
-    private void ComposeViews<M, VM, V>(GridObjectRoot<M, VM, V>[] roots, Array2d<GridObject> levelObjects) 
-        where M : GridObject, new() 
-        where VM : GridObjectVM, new() 
-        where V : DefaultGridObjectV
+    private void ComposeViews(BaseGridObjectRoot[] roots, Array2d<GridObject> levelObjects)
     {
         Vector2Int[] modelPositions = new Vector2Int[roots.Length];
 
         for (int i = 0; i < modelPositions.Count(); i++)
         {
-            int x = (int)roots[i].View.transform.position.x;
-            int y = (int)roots[i].View.transform.position.z;
+            int x = (int)roots[i].BaseView.transform.position.x;
+            int y = (int)roots[i].BaseView.transform.position.z;
             modelPositions[i] = new(x, y);
         }
 
         for (int i = 0; i < modelPositions.Count(); i++)
         {
-            if (roots[i].View.IsInitialized == false)
+            if (roots[i].BaseView.IsInitialized == false)
             {
                 roots[i].Compose(_styleId);
             }
 
-            levelObjects[modelPositions[i].X, modelPositions[i].Y] = roots[i].Model;
+            levelObjects[modelPositions[i].X, modelPositions[i].Y] = roots[i].BaseModel;
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using Model;
 using ViewModel;
 
-public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
+public abstract class GridObjectRoot<M, VM, V> : BaseGridObjectRoot where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
 {
     private bool _isUseInterpolation = false;
     
@@ -11,6 +11,10 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
     [field : SerializeField] public UpdateBroadcaster UpdateBroadcaster {get; private set;}
 
     [field : SerializeField] public V View { get; private set; }
+
+    public override GridObject BaseModel => Model;
+
+    public override GridObjectV BaseView => View;
 
     protected float InterpolationSpeed { get; private set; } = 1f;
 
@@ -61,7 +65,7 @@ public abstract class GridObjectRoot<M, VM, V> : MonoBehaviour where M : GridObj
 
     protected virtual void InitView()
     {
-        View.Initialize(ViewModel, ChapterId);
+        View.Initialize(ViewModel, StyleId);
     }
 
     private void InitAll()
