@@ -8,6 +8,7 @@ using Other;
 
 public class LevelRoot : MonoBehaviour
 {
+    [SerializeField] private LevelBackgroundV _cornerPrefab;
     [SerializeField] private byte _styleId;
     [SerializeField] private FlorV _flor;
     [SerializeField] private Camera _camera;
@@ -42,9 +43,25 @@ public class LevelRoot : MonoBehaviour
             _camera.enabled = true;
         }
 
-        _flor.Scale(levelData.Size);
+        _flor.ScaleMaterial(levelData.Size);
         Level level = new(levelGrid, gamemode);
         LevelVM levelVM = new(level, _updateBroadcaster);
+        
+        for (int y = -1; y <= 1; y++)
+        {
+            for (int x = -1; x <= 1; x++)
+            {
+                if (x == 0 && y == 0)
+                {
+                    continue;
+                }
+
+                LevelBackgroundV currentBackground = Instantiate(_cornerPrefab);
+                currentBackground.SetSize(new Vector2Int(levelGrid.LengthX, levelGrid.LengthY));
+                currentBackground.SetPosition(new Vector2Int(x, y), new Vector2Int(levelGrid.LengthX, levelGrid.LengthY));
+            }
+        }
+
         return level;
     }
 
