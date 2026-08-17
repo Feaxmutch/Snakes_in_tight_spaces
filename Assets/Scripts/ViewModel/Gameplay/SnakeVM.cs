@@ -87,7 +87,7 @@ namespace ViewModel
 
         private void RotateToModel()
         {
-            Vector2 modelPosition = ModelPosition.Value.ConvertToVector2();
+            Vector2 modelPosition = ModelPosition.Value.ConvertToUnityFloat();
             Vector2 lookVector = modelPosition - InterpolatedPosition.Value;
 
             if (lookVector != Vector2.zero)
