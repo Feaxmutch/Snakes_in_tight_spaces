@@ -31,7 +31,12 @@ namespace Other
             return base.GetHashCode();
         }
 
-        public Vector2 ConvertToVector2()
+        public UnityEngine.Vector2Int ConvertToUnityInt()
+        {
+            return new UnityEngine.Vector2Int(X, Y);
+        }
+
+        public Vector2 ConvertToUnityFloat()
         {
             return new Vector2(X, Y);
         }
