@@ -57,6 +57,7 @@ public class LevelRoot : MonoBehaviour
                 }
 
                 LevelBackgroundV currentBackground = Instantiate(_cornerPrefab);
+                currentBackground.SetMaterial(GameplayMaterials.Instance.Styles[_styleId].Wall);
                 currentBackground.SetSize(new Vector2Int(levelGrid.LengthX, levelGrid.LengthY));
                 currentBackground.SetPosition(new Vector2Int(x, y), new Vector2Int(levelGrid.LengthX, levelGrid.LengthY));
             }

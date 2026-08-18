@@ -11,16 +11,13 @@ public class LevelBackgroundV : MonoBehaviour
     [SerializeField] private float _zoomFactor = 1;
     private MeshRenderer _meshRenderer;
     private MaterialScaler _materialScaler;
-    private Material _materialCopy;
 
     private bool _isInit = false;
 
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
-        _materialCopy = new(_meshRenderer.material);
-        _meshRenderer.SetMaterials(new List<Material>() {_materialCopy});
-        _materialScaler = new(_materialCopy);
+        SetMaterial(_meshRenderer.material);
         _isInit = true;
     }
 
@@ -59,5 +56,12 @@ public class LevelBackgroundV : MonoBehaviour
         float positionX = ((float)(levelSize.X - 1) / 2) + (levelSize.X * positionOffset.X);
         float positionY = ((float)(levelSize.Y - 1) / 2) + (levelSize.Y * positionOffset.Y);
         transform.position = new Vector3(positionX, 0, positionY);
+    }
+
+    public void SetMaterial(Material material)
+    {
+        Material materialCopy = new(material);
+        _meshRenderer.SetMaterials(new List<Material>() {materialCopy});
+        _materialScaler = new(materialCopy);
     }
 }
