@@ -32,6 +32,11 @@ public abstract class WindowV : MonoBehaviour
         Unsubscribe();
     }
 
+    private void OnDestroy()
+    {
+        Unsubscribe();
+    }
+
     public void Initialize(WindowVM viewModel)
     {
         if (CanvasGroup == null) Awake();
