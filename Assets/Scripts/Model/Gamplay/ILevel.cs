@@ -5,7 +5,5 @@ namespace Model
         IGamemode Gamemode { get; }
 
         IGrid Grid { get; }
-        
-        void OnUpdate(float deltaTime);
     }
 }

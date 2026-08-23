@@ -5,7 +5,6 @@ using ViewModel;
 public class SnakeHeadV : EntityV
 {
     [SerializeField] public SnakeBodyRootFactory _bodyFactory;
-    [SerializeField] public UpdateBroadcaster _updateBroadcaster;
     
     private SnakeVM _vewModel;
 

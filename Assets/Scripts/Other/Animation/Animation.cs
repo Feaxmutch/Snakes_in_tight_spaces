@@ -13,6 +13,8 @@ namespace Other
 
         public IReactiveValue<float> AnimatedValue => _animatedValue;
 
+        public float CurrentProgress => _currentProgress;
+
         public Animation()
         {
             _startValue = 0;
@@ -31,7 +33,7 @@ namespace Other
 
         public void SetProgress(float value)
         {
-            value = Math.Clamp(value, 0, 1);
+            if(value.IsInRange(0, 1) == false) throw new ArgumentOutOfRangeException("expected value between 0 and 1");
             _currentProgress = value;
             UpdateTarget();
         }
@@ -41,7 +43,7 @@ namespace Other
         public void NextStep(float deltaTime)
         {
             float frameStep = deltaTime / _duration;
-            SetProgress(_currentProgress + frameStep);
+            SetProgress(Math.Clamp(_currentProgress + frameStep, 0, 1));
         }
 
         private float GetLength() => _endValue - _startValue;

@@ -1,21 +1,20 @@
 using Other;
+using Cysharp.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
+using System;
 
 namespace ViewModel
 {
     public class Animator
     {
-        private readonly IUnityUpdate _unityUpdate;
+        private CancellationTokenSource _cts;
 
         private Animation _animation;
-        private bool _isPlaying = false;
-
-        public Animator(IUnityUpdate unityUpdate)
-        {
-            _unityUpdate = unityUpdate;
-            _unityUpdate.Updated += OnFrameUpdated;
-        }
 
         public IAnimation Animation => _animation;
+
+        public bool IsPlaying => _cts != null;
 
         public void SetAnimation(Animation animation)
         {
@@ -24,28 +23,53 @@ namespace ViewModel
 
         public void Play()
         {
-            float progressValue = default(float);
-            _animation.SetProgress(progressValue);
-            _isPlaying = true;
+            if(IsPlaying)
+            {
+                Stop();
+                Play();
+            } 
+
+            try
+            {
+                _cts = new();
+                AnimationTask(_cts.Token).Forget();
+            }
+            catch (OperationCanceledException)
+            {
+                
+            }
+        }
+
+        public async UniTaskVoid AnimationTask(CancellationToken token)
+        {
+            _animation.SetProgress(default(float));
+            var stopwatch = Stopwatch.StartNew();
+
+            while (_animation.CurrentProgress < 1 && token.IsCancellationRequested == false)
+            {
+                stopwatch.Restart();
+                await UniTask.Yield(token).SuppressCancellationThrow();
+                _animation.NextStep((float)stopwatch.ElapsedMilliseconds / 1000);
+            }
+
+            stopwatch.Stop();
+            _cts = null;
         }
 
         public void Stop()
         {
-            _isPlaying = false;
+            if (IsPlaying)
+            {
+                _cts.Cancel();
+                _cts.Dispose();
+                _cts = null;
+            }
         }
 
         public void SkipToEnd()
         {
             float progressValue = default(float);
             _animation.SetProgress(++progressValue);
-        }
-
-        private void OnFrameUpdated(float deltaTime)
-        {
-            if (_isPlaying)
-            {
-                _animation.NextStep(deltaTime);
-            }
         }
     }
 }

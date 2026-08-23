@@ -12,7 +12,6 @@ public class LevelRoot : MonoBehaviour
     [SerializeField] private byte _styleId;
     [SerializeField] private FlorV _flor;
     [SerializeField] private Camera _camera;
-    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
     [SerializeField] private BaseGridObjectRoot[] _gridObjectRoots;
     [SerializeField] private SnakeRoot[] _snakes;
 
@@ -45,7 +44,6 @@ public class LevelRoot : MonoBehaviour
 
         _flor.ScaleMaterial(levelData.Size);
         Level level = new(levelGrid, gamemode);
-        LevelVM levelVM = new(level, _updateBroadcaster);
         
         for (int y = -1; y <= 1; y++)
         {

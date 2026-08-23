@@ -193,7 +193,6 @@ MonoBehaviour:
   _styleId: 0
   _flor: {fileID: 9066231570569146674}
   _camera: {fileID: 8540545523668310856}
-  _updateBroadcaster: {fileID: 6724047247422959637}
   _gridObjectRoots:
   - {fileID: 8219024744311213969}
   - {fileID: 5875143363258405733}
@@ -363,7 +362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StyleId>k__BackingField: 0
-  <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 715474786442799447}
   _groopId: 1
 --- !u!1 &2918772377100006117
@@ -602,7 +600,6 @@ MonoBehaviour:
   <View>k__BackingField: {fileID: 3934689446564593617}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
-  _updateBroadcaster: {fileID: 6724047247422959637}
 --- !u!1 &4629434389338903964
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +777,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2832858365254312182}
   - component: {fileID: 4530519562598156724}
-  - component: {fileID: 6724047247422959637}
   m_Layer: 0
   m_Name: Broadcaster
   m_TagString: Untagged
@@ -818,18 +814,6 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &6724047247422959637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681910675598035299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5719784598623327669
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +946,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <StyleId>k__BackingField: 0
-  <UpdateBroadcaster>k__BackingField: {fileID: 6724047247422959637}
   <View>k__BackingField: {fileID: 5479382939086345917}
   _groopId: 0
 --- !u!1 &6766662725160797137
@@ -1434,14 +1417,6 @@ PrefabInstance:
       propertyPath: _colorIndex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
-    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 6889654904692366322, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -2163,10 +2138,6 @@ PrefabInstance:
       propertyPath: _bodyFactory
       value: 
       objectReference: {fileID: 7888282934247041535}
-    - target: {fileID: 1917341525742107033, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 2038825167734009997, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -2223,14 +2194,6 @@ PrefabInstance:
       propertyPath: _inputBroadcaster
       value: 
       objectReference: {fileID: 4530519562598156724}
-    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
-    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _colorIndex
       value: 2
@@ -2239,10 +2202,6 @@ PrefabInstance:
       propertyPath: _inputBroadcaster
       value: 
       objectReference: {fileID: 4530519562598156724}
-    - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _bodyRoots.Array.size
       value: 2
@@ -2685,14 +2644,6 @@ PrefabInstance:
       propertyPath: _colorIndex
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
-    - target: {fileID: 6803376207755038024, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 6889654904692366322, guid: 8289dcc6056179745b56eb6e95a26ceb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -3341,10 +3292,6 @@ PrefabInstance:
       propertyPath: _colorIndex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 9139421807510101841, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 1
@@ -3438,10 +3385,6 @@ PrefabInstance:
       propertyPath: _colorIndex
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8876840514505701783, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 9139421807510101841, guid: f99a9b108c556f2478d826365a64c7a7, type: 3}
       propertyPath: _colorIndex
       value: 2
@@ -3718,10 +3661,6 @@ PrefabInstance:
       propertyPath: _bodyFactory
       value: 
       objectReference: {fileID: 7888282934247041535}
-    - target: {fileID: 1917341525742107033, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 2038825167734009997, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -3774,14 +3713,6 @@ PrefabInstance:
       propertyPath: _inputBroadcaster
       value: 
       objectReference: {fileID: 4530519562598156724}
-    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
-    - target: {fileID: 7684559460730225850, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: <UpdateBroadcaster>k__BackingField
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _colorIndex
       value: 1
@@ -3790,10 +3721,6 @@ PrefabInstance:
       propertyPath: _inputBroadcaster
       value: 
       objectReference: {fileID: 4530519562598156724}
-    - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
-      propertyPath: _updateBroadcaster
-      value: 
-      objectReference: {fileID: 6724047247422959637}
     - target: {fileID: 8439910751785589221, guid: 4ec880f85057a6b42bd063afe4b5faf8, type: 3}
       propertyPath: _bodyRoots.Array.size
       value: 2

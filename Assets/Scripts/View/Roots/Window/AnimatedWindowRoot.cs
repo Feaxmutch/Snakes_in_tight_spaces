@@ -6,33 +6,23 @@ public abstract class AnimatedWindowRoot<VM, V> : WindowRooot<VM, V> where VM : 
 {
     [SerializeField] private AnimationData _showData;
     [SerializeField] private AnimationData _hideData;
-    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
 
     private Animation _showAnimation;
     private Animation _hideAnimation;
+    private AnimationFactory _animationFactory;
 
     protected override void InitViewModel()
     {
         base.InitViewModel();
-        _showAnimation = new();
-        _hideAnimation = new();
-        InitAnimations();
-        ViewModel.Init(_showAnimation, _hideAnimation, _updateBroadcaster);
+        _animationFactory = new();
+        _showAnimation = _animationFactory.Create(_showData);
+        _hideAnimation = _animationFactory.Create(_hideData);
+        ViewModel.Init(_showAnimation, _hideAnimation);
     }
 
     protected override void InitView()
     {
         base.InitView();
         View.Init(ViewModel);
-    }
-
-    private void InitAnimations()
-    {
-        _showAnimation.SetLimits(_showData.StartValue, _showData.EndValue);
-        _hideAnimation.SetLimits(_hideData.StartValue, _hideData.EndValue);
-        _showAnimation.SetDuration(_showData.Duration);
-        _hideAnimation.SetDuration(_showData.Duration);
-        _showAnimation.SetCurve(new Curve(_showData.Curve));
-        _hideAnimation.SetCurve(new Curve(_hideData.Curve));
     }
 }

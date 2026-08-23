@@ -1,14 +1,13 @@
 using UnityEngine;
 using Model;
 using ViewModel;
+using Cysharp.Threading.Tasks;
 
 public abstract class GridObjectRoot<M, VM, V> : BaseGridObjectRoot where M : GridObject, new() where VM : GridObjectVM, new() where V : DefaultGridObjectV
 {
     private bool _isUseInterpolation = false;
     
     [field : SerializeField] public byte StyleId { get; private set; }
-
-    [field : SerializeField] public UpdateBroadcaster UpdateBroadcaster {get; private set;}
 
     [field : SerializeField] public V View { get; private set; }
 
@@ -60,7 +59,7 @@ public abstract class GridObjectRoot<M, VM, V> : BaseGridObjectRoot where M : Gr
     protected virtual void InitViewModel()
     {
         ViewModel.SetSpeed(InterpolationSpeed);
-        ViewModel.Initialize(Model, _isUseInterpolation, UpdateBroadcaster);
+        ViewModel.Initialize(Model, _isUseInterpolation, View.GetCancellationTokenOnDestroy());
     }
 
     protected virtual void InitView()

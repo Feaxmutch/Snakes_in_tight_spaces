@@ -31,7 +31,7 @@ public class ExitRoot : EntityRoot<Exit, ExitVM, ExitV>
     {
         base.InitViewModel();
         InitAnimations();
-        ViewModel.Initialize(Model, _openAnimation, _closeAnimation, UpdateBroadcaster);
+        ViewModel.Initialize(Model, _openAnimation, _closeAnimation);
     }
 
     protected override void InitView()

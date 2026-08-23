@@ -15,9 +15,9 @@ namespace ViewModel
 
         public IReactiveValue<float> AnimatedValue => _animatedValue;
 
-        public void Init(Animation showAnimation, Animation hideAnimation, IUnityUpdate unityUpdate)
+        public void Init(Animation showAnimation, Animation hideAnimation)
         {
-            _animator = new(unityUpdate);
+            _animator = new();
             _showAnimation = showAnimation;
             _hideAnimation = hideAnimation;
             Subscribe();

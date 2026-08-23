@@ -15,9 +15,9 @@ namespace ViewModel
 
         public IReactiveValue<float> OpenProgres => _openProgres;
 
-        public void Initialize(Exit exit, Animation openAnimation, Animation closeAnimation, IUnityUpdate unityUpdate)
+        public void Initialize(Exit exit, Animation openAnimation, Animation closeAnimation)
         {
-            _animator = new(unityUpdate);
+            _animator = new();
             _openAnimation = openAnimation;
             _closeAnimation = closeAnimation;
             Subscribe(exit);

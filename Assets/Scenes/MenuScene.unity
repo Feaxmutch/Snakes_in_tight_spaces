@@ -1227,7 +1227,6 @@ MonoBehaviour:
   <View>k__BackingField: {fileID: 688352886}
   _showData: {fileID: 11400000, guid: 13a6da408e2f96e46b4935ceb7160405, type: 2}
   _hideData: {fileID: 11400000, guid: af350f0e43db7264ba9b7278f1320831, type: 2}
-  _updateBroadcaster: {fileID: 1340238266}
 --- !u!1 &838248719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1600,6 @@ MonoBehaviour:
   <View>k__BackingField: {fileID: 891142192}
   _showData: {fileID: 11400000, guid: e12c7eab419a84044a91863dd8082c56, type: 2}
   _hideData: {fileID: 11400000, guid: e1bbdee4082d78e44803122ec65536bf, type: 2}
-  _updateBroadcaster: {fileID: 1340238266}
 --- !u!1 &936716217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,7 +2047,8 @@ PrefabInstance:
       propertyPath: _zoomFactor
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6724047247422959637, guid: 10c4993ef2c827b43bad9756a52f6812, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7301897482039123609, guid: 10c4993ef2c827b43bad9756a52f6812, type: 3}
     - {fileID: 2918772377100006117, guid: 10c4993ef2c827b43bad9756a52f6812, type: 3}
@@ -2068,7 +2067,6 @@ GameObject:
   - component: {fileID: 1340238263}
   - component: {fileID: 1340238262}
   - component: {fileID: 1340238265}
-  - component: {fileID: 1340238266}
   - component: {fileID: 1340238267}
   - component: {fileID: 1340238268}
   m_Layer: 0
@@ -2168,18 +2166,6 @@ MonoBehaviour:
   _roots:
   - {fileID: 688352887}
   - {fileID: 891142193}
---- !u!114 &1340238266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340238261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1340238267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2991,7 +2977,6 @@ GameObject:
   - component: {fileID: 2026154439}
   - component: {fileID: 2026154438}
   - component: {fileID: 2026154437}
-  - component: {fileID: 2026154436}
   - component: {fileID: 2026154435}
   m_Layer: 0
   m_Name: UI Camera
@@ -3028,18 +3013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuRoot: {fileID: 2026154437}
---- !u!114 &2026154436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026154433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac1b9ebe9aabb745a402a26194d8909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2026154437
 MonoBehaviour:
   m_ObjectHideFlags: 0

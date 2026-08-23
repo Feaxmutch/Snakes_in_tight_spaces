@@ -5,7 +5,6 @@ public class GameplayRoot : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _levelTitle;
     [SerializeField] private GamemodeWindowRoot _gamemodeWindow;
-    [SerializeField] private UpdateBroadcaster _updateBroadcaster;
     [SerializeField] private ComplitionWindowRoot _complitionWindow;
     [SerializeField] private MenuRoot _menuRoot;
 

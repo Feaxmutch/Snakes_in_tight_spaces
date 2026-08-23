@@ -3,16 +3,21 @@ using UnityEngine;
 using Other;
 using Vector2Int = Other.Vector2Int;
 using System;
+using Cysharp.Threading.Tasks;
+using System.Threading;
+using System.Diagnostics;
 
 namespace ViewModel
 {
     public class GridObjectVM
     {
+        private bool _isInitialized = false;
         private readonly ReactiveValue<Vector2Int> _modelPosition = new();
         private readonly ReactiveValue<Vector2> _interpolatedPosition = new();
+        
+        private CancellationToken _onDestroyToken;
 
         private GridObject _gridObject;
-        private IUnityUpdate _unityUpdate;
         
         public event Action Destroyed;
 
@@ -24,7 +29,7 @@ namespace ViewModel
 
         public float InterpolationSpeed { get; private set; }
 
-        public void Initialize(GridObject gridObject, bool isUseInterpolation = false, IUnityUpdate unityUpdate = null)
+        public void Initialize(GridObject gridObject, bool isUseInterpolation = false, CancellationToken onDestroyToken = default)
         {
             _gridObject = gridObject;
             _gridObject.PositionChanged += OnPositionChanged;
@@ -32,17 +37,19 @@ namespace ViewModel
             _gridObject.Started += OnModelStart;
             IsUseInterpolation = isUseInterpolation;
 
-            if (IsUseInterpolation)
-            {
-                _unityUpdate = unityUpdate;
-                _unityUpdate.Updated += OnUpdate;
-            }
-
             if (_gridObject.IsInLevel(false))
             {
                 _modelPosition.Value = _gridObject.GetPosition();
                 _interpolatedPosition.Value = new Vector2(ModelPosition.Value.X, ModelPosition.Value.Y);
             }
+
+            if (IsUseInterpolation)
+            {
+                _onDestroyToken = onDestroyToken;
+                UpdateTask(_onDestroyToken).Forget();
+            }
+
+            _isInitialized = true;
         }
 
         public void SetSpeed(float speed)
@@ -61,6 +68,19 @@ namespace ViewModel
             _modelPosition.Value = vector;
         }
 
+        private async UniTaskVoid UpdateTask(CancellationToken token)
+        {
+            var stopwatch = Stopwatch.StartNew();
+
+            while (token.IsCancellationRequested == false)
+            {
+                if(_isInitialized == false)  await UniTask.WaitUntil(() =>_isInitialized);
+                OnUpdate((float)stopwatch.ElapsedMilliseconds / 1000);
+                stopwatch.Restart();
+                await UniTask.Yield(token);
+            }
+        }
+
         protected virtual void OnUpdate(float deltaTime)
         {
             float x = Mathf.MoveTowards(InterpolatedPosition.Value.x, ModelPosition.Value.X, deltaTime * InterpolationSpeed);
@@ -71,11 +91,6 @@ namespace ViewModel
         private void OnDestroy()
         {
             Destroyed?.Invoke();
-
-            if (_unityUpdate != null)
-            {
-                _unityUpdate.Updated -= OnUpdate;
-            }
         }
     }
 }
