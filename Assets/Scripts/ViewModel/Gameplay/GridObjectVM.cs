@@ -75,7 +75,7 @@ namespace ViewModel
             while (token.IsCancellationRequested == false)
             {
                 if(_isInitialized == false)  await UniTask.WaitUntil(() =>_isInitialized);
-                OnUpdate((float)stopwatch.ElapsedMilliseconds / 1000);
+                OnUpdate((float)stopwatch.Elapsed.Ticks / TimeSpan.TicksPerSecond);
                 stopwatch.Restart();
                 await UniTask.Yield(token);
             }

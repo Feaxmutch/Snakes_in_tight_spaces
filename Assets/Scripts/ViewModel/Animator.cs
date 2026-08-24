@@ -49,7 +49,7 @@ namespace ViewModel
             {
                 stopwatch.Restart();
                 await UniTask.Yield(token).SuppressCancellationThrow();
-                _animation.NextStep((float)stopwatch.ElapsedMilliseconds / 1000);
+                _animation.NextStep((float)stopwatch.Elapsed.Ticks / TimeSpan.TicksPerSecond);
             }
 
             stopwatch.Stop();

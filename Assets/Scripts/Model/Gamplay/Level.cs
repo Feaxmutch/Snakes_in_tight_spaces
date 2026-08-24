@@ -70,7 +70,7 @@ namespace Model
             {
                 stopwatch.Restart();
                 await UniTask.Yield(token);
-                OnUpdate((float)stopwatch.ElapsedMilliseconds / 1000);
+                OnUpdate((float)stopwatch.Elapsed.Ticks / TimeSpan.TicksPerSecond);
             }
         }
 
